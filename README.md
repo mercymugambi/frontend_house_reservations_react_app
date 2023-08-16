@@ -64,8 +64,8 @@ Example commands:
 
 ```sh
 
-  git clone https://github.com/mercymugambi/backend_house_reservations_rails_app.git
-  cd backend_house_reservations_rails_app
+  git clone https://github.com/mercymugambi/frontend_house_reservations_react_app.git
+  cd frontend_house_reservations_react_app
 ```
 
 ### Install
