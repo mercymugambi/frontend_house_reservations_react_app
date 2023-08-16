@@ -31,7 +31,7 @@
 
 - React
 
-## React Link
+## Rails Link
 
   https://github.com/mercymugambi/backend_house_reservations_rails_app/
 
