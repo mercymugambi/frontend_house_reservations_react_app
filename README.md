@@ -33,7 +33,7 @@
 
 ## React Link
 
-  https://github.com/mercymugambi/backed_house_reservations_rails_app/
+  https://github.com/mercymugambi/backend_house_reservations_rails_app/
 
 ## Key Features
 
