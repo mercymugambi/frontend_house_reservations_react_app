@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 import { configureStore } from '@reduxjs/toolkit';
-import greetingReducer from './greetings/greetingSlice';
+import housesReducer from './house/HousesSlice'
 
 const store = configureStore({
   reducer: {
-    greetings: greetingReducer,
+    houses: housesReducer
   },
 });
 
