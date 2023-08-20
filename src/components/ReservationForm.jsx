@@ -1,56 +1,37 @@
-import react from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReservationForm } from '../redux/reservations/reservationFormSlice';
 
-function reservationForm() {
+const ReservationFormComponent = () => {
+  const dispatch = useDispatch();
+  const { reservationForm, isLoading, error } = useSelector(
+    (state) => state.reservation_form,
+  );
+
+  useEffect(() => {
+    dispatch(fetchReservationForm());
+  }, [dispatch]);
+
   return (
     <div>
-      <Link to="/reservation-form">
-        <button>Create Reservation</button>
-      </Link>
-
-      {form_with({ model: reservation }, (form) => (
-        <div>
-          {reservation.errors.any() && (
-          <div style={{ color: 'red' }}>
-            <h2>
-              {pluralize(reservation.errors.count, 'error')}
-              {' '}
-              prohibited this
-              reservation from being saved:
-            </h2>
-            <ul>
-              {reservation.errors.each((error) => (
-                <li>{error.full_message}</li>
-              ))}
-            </ul>
-          </div>
-          )}
-
-          <div>
-            {form.label('city', { style: 'display: block' })}
-            {form.text_field('city')}
-          </div>
-
-          <div>
-            {form.label('reservation_date', { style: 'display: block' })}
-            {form.date_field('reservation_date')}
-          </div>
-
-          <div>
-            {form.label('user_id', { style: 'display: block' })}
-            {form.text_field('user_id')}
-          </div>
-
-          <div>
-            {form.label('house_id', { style: 'display: block' })}
-            {form.text_field('house_id')}
-          </div>
-
-          <div>
-            {form.submit()}
-          </div>
-        </div>
-      ))}
+      <h2>Reservation Form</h2>
+      {isLoading && <p>Loading...</p>}
+      {error && (
+      <p>
+        Error:
+        {error}
+      </p>
+      )}
+      {reservationForm && (
+        <form>
+          {/* Render your form fields here */}
+          <input type="text" placeholder="City" id="city" name="city" value={reservationForm.city} />
+          {/* ... other form fields */}
+          <button type="submit">Submit</button>
+        </form>
+      )}
     </div>
   );
-}
-export default reservationForm;
+};
+
+export default ReservationFormComponent;
