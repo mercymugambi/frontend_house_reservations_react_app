@@ -1,6 +1,5 @@
-/* eslint-disable */
 import React, { useState } from 'react';
-import {  Link, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +7,9 @@ const LoginForm = () => {
     password: '',
   });
 
-  const [loginSuccess, setLoginSuccess] = useState(false); 
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const [loginFailure, setLoginFailure] = useState(false);
-  
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,7 +20,7 @@ const LoginForm = () => {
     }));
   };
 
-  const url = 'http://127.0.0.1:3000/api/v1/users/sign_in'; 
+  const url = 'http://127.0.0.1:3000/api/v1/users/sign_in';
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -35,12 +34,12 @@ const LoginForm = () => {
       });
 
       if (response.ok) {
-        const data = await response.json(); 
+        const data = await response.json();
         localStorage.setItem('userData', JSON.stringify(data));
-        setLoginSuccess(true);  
-        navigate('/homepage')
-     } else {
-        setLoginFailure(true)
+        setLoginSuccess(true);
+        navigate('/homepage');
+      } else {
+        setLoginFailure(true);
       }
     } catch (error) {
       throw new Error(error);
@@ -50,13 +49,13 @@ const LoginForm = () => {
   return (
     <div>
       <h2>Login</h2>
-      {loginSuccess ? ( 
+      {loginSuccess ? (
         <div>
           <p>Login successful! Welcome back.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <label>
+          <label htmlFor>
             Email:
             <input
               type="email"
@@ -66,7 +65,7 @@ const LoginForm = () => {
             />
           </label>
           <br />
-          <label>
+          <label htmlFor>
             Password:
             <input
               type="password"
@@ -77,19 +76,19 @@ const LoginForm = () => {
           </label>
           <br />
           <button type="submit">Login</button>
-          <Link to="/register">Register</Link>        
+          <Link to="/register">Register</Link>
         </form>
-        
+
       )}
-         
-        {loginFailure && (
-          <div>
-            <p>Invalid email or password.</p>
-          </div>
-        )}
+
+      {loginFailure && (
+      <div>
+        <p>Invalid email or password.</p>
+      </div>
+      )}
     </div>
-    
+
   );
-}
+};
 
 export default LoginForm;
