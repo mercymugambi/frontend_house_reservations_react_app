@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchApi } from "../redux/house/HousesSlice";
 
-const AddHouse = () => {
+const AddHouse = (e) => {
     const dispatch = useDispatch()
     const [dataList, setDataList] = useState([])
-   
+
     useEffect(() => {
         const getData = JSON.parse(localStorage.getItem("data"));
         if (getData) {
@@ -17,32 +17,24 @@ const AddHouse = () => {
     
     const HouseSubmit = (e) => {
         e.preventDefault()
-        const houseName = e.target.houseName.value;
-        const Description = e.target.Description.value
-        const bedrooms = parseInt(e.target.bedrooms.value)
-        const bathrooms = parseInt(e.target.bathrooms.value)
-        const rent = parseInt(e.target.rent.value)
-        const security = e.target.security.value
-        const city = e.target.city.value
-        const image = e.target.image.files[0]
-        const phone = parseInt(e.target.phone.value)
+        
+        const formData = new FormData(e.target)
         
         const setData = {
-            houseName,
-            Description,
-            bedrooms,
-            bathrooms,
-            rent,
-            security,
-            city,
-            image,
-            phone,
+            houseName: formData.get('houseName'),
+            Description: formData.get('Description'),
+            bedrooms: Number(formData.get('bedrooms')),
+            bathrooms: Number(formData.get('bathrooms')),
+            rent: Number(formData.get('rent')),
+            security: formData.get('security'),
+            city: formData.get('city'),
+            image: formData.get('image'),
+            phone: Number(formData.get('phone'))
         }
-        console.log(setData);
+        console.log("setdata :",setData);
         
         setDataList([...dataList, setData])
-        
-        dispatch(fetchApi(dataList));
+        dispatch(fetchApi({setData}))
     }
     
     return (
@@ -75,6 +67,7 @@ const AddHouse = () => {
                             <div >{e && e.rent}</div>
                             <div >{e && e.security}</div>
                             <div >{e && e.city}</div>
+                            <div >{e && e.phone}</div>
                             <div >
                                 {e && e.image instanceof File ? (
                                     <img className="houseUrl" src={URL.createObjectURL(e.image)} alt="House" />
@@ -82,7 +75,6 @@ const AddHouse = () => {
                                     "No Image"
                                 )}
                             </div>
-                            <div >{e && e.phone}</div>
                         </div>
                     )
                 })}
