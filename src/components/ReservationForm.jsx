@@ -1,26 +1,37 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import DatePicker from 'react-datepicker';
 import { fetchReservationForm } from '../redux/reservations/reservationFormSlice';
-import 'react-datepicker/dist/react-datepicker.css';
+// import { fetchReservationForm,
+// submitReservationForm } from '../redux/reservations/reservationFormSlice';
 
 const ReservationFormComponent = () => {
-//   const [checkinDate, setCheckinDate] = useState(null);
-//   const [checkoutDate, setCheckoutDate] = useState(null);
-
-  //   const handleCheckinDateChange = (date) => {
-  //     setCheckinDate(date);
-  //     setCheckoutDate(null);
-  //   };
-
-  //   const handleCheckoutDateChange = (date) => {
-  //     setCheckoutDate(date);
-  //   };
-
   const dispatch = useDispatch();
   const { reservationForm, isLoading, error } = useSelector(
     (state) => state.reservationForm,
   );
+  // const cities = useSelector((state) => state.houses.cities);
+
+  // const [selectedCity, setSelectedCity] = useState(
+  //   reservationForm.city || '',
+  // );
+
+  // const handleCityChange = (selectedCity) => {
+  //   setSelectedCity(selectedCity);
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  // const formData = {
+  //   city: selectedCity,
+  // };
+
+  //   try {
+  //     await dispatch(submitReservationForm(formData));
+  //   } catch (error) {
+  //     <p>Error</p>;
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(fetchReservationForm());
@@ -36,6 +47,7 @@ const ReservationFormComponent = () => {
       </p>
       )}
       {reservationForm && (
+        // <form onSubmit={handleSubmit}>
         <form>
           <h2>Book a House!</h2>
           <p>
@@ -43,28 +55,23 @@ const ReservationFormComponent = () => {
             Please fill in the form to make your reservation.
           </p>
           <div className="inputs-and-button">
-            <input
+            <select
+              id="city"
               type="text"
               placeholder="City"
-              id="city"
               name="city"
               value={reservationForm.city}
-            />
-            {/* <DatePicker
-              id="checkin-date"
-              placeholder="Check-in Date"
-              selected={checkinDate}
-              onChange={handleCheckinDateChange}
-              dateFormat="yyyy-MM-dd"
-            />
-            <DatePicker
-              id="checkout-date"
-              placeholder="Check-out Date"
-              selected={checkoutDate}
-              onChange={handleCheckoutDateChange}
-              minDate={checkinDate ? new Date(checkinDate) : null} // Set minDate for checkout date
-              dateFormat="yyyy-MM-dd"
-            /> */}
+              // onChange={(e) => handleCityChange(e.target.value)}
+            >
+              <option value="" disabled>
+                City
+              </option>
+              {/* {cities.map((city) => (
+                <option key={city.id} value={city.name}>
+                  {city.name}
+                </option>
+              ))} */}
+            </select>
             <button type="submit">Submit</button>
           </div>
         </form>
