@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
 
 export const fetchApi = createAsyncThunk(
     "houses/fetchApi", async(Data) => {
@@ -12,9 +11,13 @@ export const fetchApi = createAsyncThunk(
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(Data),
+        });
+
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
         }
-        );
-        const data = await response.json(Data)
+
+        const data = await response.json()
         console.log("API", data);
         return data
     }

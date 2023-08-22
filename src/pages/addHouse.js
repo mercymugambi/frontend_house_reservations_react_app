@@ -4,21 +4,25 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchApi } from "../redux/house/HousesSlice";
 
-const AddHouse = (e) => {
+const AddHouse = () => {
     const dispatch = useDispatch()
     const [dataList, setDataList] = useState([])
 
     useEffect(() => {
         const getData = JSON.parse(localStorage.getItem("data"));
         if (getData) {
+            console.log("Data fetched from localStorage:", getData);
             setDataList(getData);
         }
     }, []);
     
-    const HouseSubmit = (e) => {
+    const HouseSubmit = async (e) => {
         e.preventDefault()
         
         const formData = new FormData(e.target)
+
+        const imageFile = formData.get('image');
+        const setImage = imageFile ? await convertToBase64(imageFile) : null;
         
         const setData = {
             houseName: formData.get('houseName'),
@@ -28,14 +32,36 @@ const AddHouse = (e) => {
             rent: Number(formData.get('rent')),
             security: formData.get('security'),
             city: formData.get('city'),
-            image: formData.get('image'),
+            image: setImage,
             phone: Number(formData.get('phone'))
         }
         console.log("setdata :",setData);
         
-        setDataList([...dataList, setData])
-        dispatch(fetchApi({setData}))
+        const updatedDataList = [...dataList, setData];
+        setDataList(updatedDataList);
+
+        try {
+            localStorage.setItem('data', JSON.stringify(updatedDataList));
+            await dispatch(fetchApi({ setData: setData }));
+            console.log("localstorage" , updatedDataList);
+        } catch (error) {
+            console.error("Error while updating data:", error);
+        }
+        await dispatch(fetchApi(setData));
     }
+
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                resolve(event.target.result);
+            };
+            reader.onerror = (error) => {
+                reject(error);
+            };
+            reader.readAsDataURL(file);
+        });
+    };
     
     return (
         <>
@@ -55,30 +81,6 @@ const AddHouse = (e) => {
                 </form>
             </section>
 
-            <div>
-                {dataList.map((e, index) => {
-                    return (
-                        <div key={index}>
-
-                            <div>{e && e.houseName}</div>
-                            <div >{e && e.Description}</div>
-                            <div >{e && e.bedrooms}</div>
-                            <div >{e && e.bathrooms}</div>
-                            <div >{e && e.rent}</div>
-                            <div >{e && e.security}</div>
-                            <div >{e && e.city}</div>
-                            <div >{e && e.phone}</div>
-                            <div >
-                                {e && e.image instanceof File ? (
-                                    <img className="houseUrl" src={URL.createObjectURL(e.image)} alt="House" />
-                                ) : (
-                                    "No Image"
-                                )}
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
         </>
     );
 }
