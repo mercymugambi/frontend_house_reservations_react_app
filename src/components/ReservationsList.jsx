@@ -33,14 +33,6 @@ const ReservationsList = () => {
               City:
               {reservation.city}
             </p>
-            <p>
-              Check in Date:
-              {reservation.reservation_checkin_date}
-            </p>
-            <p>
-              Checkout Date:
-              {reservation.reservation_checkout_date}
-            </p>
           </div>
         ))}
       </div>
