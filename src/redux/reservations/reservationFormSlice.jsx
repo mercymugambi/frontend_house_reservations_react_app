@@ -17,6 +17,21 @@ export const fetchReservationForm = createAsyncThunk(
   },
 );
 
+export const submitReservationForm = createAsyncThunk(
+  'reservations/submitReservationForm',
+  async (formData) => {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    return data;
+  },
+);
+
 const ReservationFormSlice = createSlice({
   name: 'reservation_form',
   initialState,

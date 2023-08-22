@@ -52,7 +52,7 @@ const ReservationFormComponent = () => {
           <h2>Book a House!</h2>
           <p>
             Hello! We&apos;re excited that you want to book with us!
-            Please fill in the form to make your reservation.
+            Please the city in which you want to make your reservation.
           </p>
           <div className="inputs-and-button">
             <select
