@@ -13,11 +13,8 @@ import "./styling/HousesList.css"
 import "./styling/HomePage.css"
 // import { useState } from 'react';
 
-const App = () => {
-
-  // const [dataList, setDataList] = useState([]);
-
 const App = () => (
+
   <Provider store={store}>
     <Router>
       <Routes>
@@ -29,6 +26,5 @@ const App = () => (
     </Router>
   </Provider>
 );
-}
 
 export default App;
