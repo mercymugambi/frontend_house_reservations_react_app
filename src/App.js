@@ -8,17 +8,14 @@ import SplashPage from './components/SplashPage';
 import HomePage from './components/HomePage';
 import LoginForm from './components/sessions/LoginForm';
 import RegistrationForm from './components/sessions/RegistrationForm';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddHouse from './components/addHouse';
-import HouseList from './components/HousesList';
-import HomePage from './components/HomePage';
+// import AddHouse from './components/addHouse';
 import "./styling/HousesList.css"
 import "./styling/HomePage.css"
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const App = () => {
 
-  const [dataList, setDataList] = useState([]);
+  // const [dataList, setDataList] = useState([]);
 
 const App = () => (
   <Provider store={store}>
@@ -32,5 +29,6 @@ const App = () => (
     </Router>
   </Provider>
 );
+}
 
 export default App;
