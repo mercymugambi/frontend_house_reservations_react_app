@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { configureStore } from '@reduxjs/toolkit';
 import housesReducer from './houses/housesSlice';
 
