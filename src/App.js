@@ -1,13 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Greeting from './components/Greeting';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Update the import
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import SplashPage from './components/SplashPage';
+import HomePage from './components/HomePage';
+import LoginForm from './components/sessions/LoginForm';
+import RegistrationForm from './components/sessions/RegistrationForm';
 
 const App = () => (
-  <Router>
-    <Routes>
-      <Route exact path="/" element={<Greeting />} />
-    </Routes>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SplashPage />} />
+        <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/homepage" element={<HomePage />} />
+      </Routes>
+    </Router>
+  </Provider>
 );
 
 export default App;
