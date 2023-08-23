@@ -26,14 +26,14 @@ const AddHouse = () => {
         
         const setData = {
             houseName: formData.get('houseName'),
-            Description: formData.get('Description'),
+            dataListescription: formData.get('Description'),
             bedrooms: Number(formData.get('bedrooms')),
             bathrooms: Number(formData.get('bathrooms')),
             rent: Number(formData.get('rent')),
             security: formData.get('security'),
             city: formData.get('city'),
-            image: setImage,
-            phone: Number(formData.get('phone'))
+            icon: setImage,
+           contact_phone_number: Number(formData.get('phone'))
         }
         console.log("setdata :",setData);
         
@@ -69,14 +69,14 @@ const AddHouse = () => {
                 <h1>Create Home</h1>
                 <form onSubmit={HouseSubmit}>
                     <input type="text" name="houseName" placeholder="House Name" />
-                    <input type="text" name="Description" placeholder="Description" />
+                    <input type="text" name="description" placeholder="Description" />
                     <input type="number" name="bedrooms" placeholder="Number of Bedrooms" />
                     <input type="number" name="bathrooms" placeholder="Number of Bathrooms" />
                     <input type="number" name="rent" placeholder="Monthly Rent" />
                     <input type="text" name="security" placeholder="Security Deposit" />
                     <input type="text" name="city" placeholder="City" />
-                    <input type="number" name="phone" placeholder="Contact Phone Number" />
-                    <input type="file" name="image" accept="image/*" placeholder="Image URL" />
+                    <input type="number" name="contact_phone_number" placeholder="Contact Phone Number" />
+                    <input type="file" name="icon" accept="image/*" placeholder="Image URL" />
                     <button type="submit">Submit</button>
                 </form>
             </section>
