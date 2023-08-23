@@ -29,10 +29,7 @@ const HomePage = () => {
               House:
               {house.id}
             </h4>
-            <p>
-              icon:
-              {house.icon}
-            </p>
+            <img src={house.icon} alt="House Icon" />
             <p>
               name:
               {house.name}
