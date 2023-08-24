@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Update the import
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import SplashPage from "./components/SplashPage";
-import HomePage from "./components/HomePage";
-import LoginForm from "./components/sessions/LoginForm";
-import RegistrationForm from "./components/sessions/RegistrationForm";
-import HouseDetails from "./components/HouseDetails";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Update the import
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import SplashPage from './components/SplashPage';
+import HomePage from './components/HomePage';
+import LoginForm from './components/sessions/LoginForm';
+import RegistrationForm from './components/sessions/RegistrationForm';
+import HouseDetails from './components/HouseDetails';
 
 const App = () => (
   <Provider store={store}>

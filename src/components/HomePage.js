@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHouses } from "../redux/houses/housesSlice";
-import LogoutButton from "./LogoutButton";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchHouses } from '../redux/houses/housesSlice';
+import LogoutButton from './LogoutButton';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -23,10 +23,19 @@ const HomePage = () => {
           houses.map((house) => (
             <Link to={`/house/${house.id}`} key={house.id}>
               <div className="container">
-                <h4>House: {house.id}</h4>
+                <h4>
+                  House:
+                  {house.id}
+                </h4>
                 <img src={house.icon} alt="House Icon" />
-                <p>name: {house.name}</p>
-                <p>description: {house.description}</p>
+                <p>
+                  name:
+                  {house.name}
+                </p>
+                <p>
+                  description:
+                  {house.description}
+                </p>
               </div>
             </Link>
           ))
