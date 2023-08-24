@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHouses } from "../redux/houses/housesSlice";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchHouses } from '../redux/houses/housesSlice';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -17,14 +17,16 @@ const HomePage = () => {
       <div className="main-container">
         {houses.length > 0 ? (
           houses.map((house) => (
-            <div className="container">
+            <div className="container" key={house.id}>
               <h4>
                 House:
                 {house.id}
               </h4>
               <img src={house.icon} alt="House Icon" />
               <h2 className="detailTitle">
-                More Information about {house.name}
+                More Information about
+                {' '}
+                {house.name}
               </h2>
               <div className="info">
                 <p>House Name</p>
@@ -32,7 +34,7 @@ const HomePage = () => {
               </div>
               <div className="info">
                 <p>City</p>
-                <p>{house.city || "N/A"}</p>
+                <p>{house.city || 'N/A'}</p>
               </div>
               <div className="info">
                 <p>Description</p>
@@ -56,7 +58,7 @@ const HomePage = () => {
               </div>
               <div className="info">
                 <p>Contact Phone Number</p>
-                <p>{house.contact_phone_number || "N/A"}</p>
+                <p>{house.contact_phone_number || 'N/A'}</p>
               </div>
             </div>
           ))
