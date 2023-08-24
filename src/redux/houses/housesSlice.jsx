@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const baseUrl = 'http://localhost:3000/api/v1/houses';
+const baseUrl = 'http://localhost:3000/api/v1/houses#new';
 
 const initialState = {
   houses: [],
+  // housesForm: {},
   isLoading: false,
   error: null,
 };
@@ -16,6 +17,41 @@ export const fetchHouses = createAsyncThunk(
     return data;
   },
 );
+
+// export const submitHousesForm = createAsyncThunk(
+//   'houses/submitHousesForm',
+//   async (formData) => {
+//     const response = await fetch(baseUrl, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(formData),
+// //     });
+// //     const data = await response.json();
+// //     return data;
+// //   },
+// // );
+// export const submitHousesForm = createAsyncThunk(
+//   'houses/submitHousesForm',
+//   async (formData) => {
+//     const jsonFormData = {};
+//     formData.forEach((value, key) => {
+//       jsonFormData[key] = value;
+//     });
+
+//     const response = await fetch(baseUrl, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(jsonFormData),
+//     });
+
+//     const data = await response.json();
+//     return data;
+//   },
+// );
 
 const housesSlice = createSlice({
   name: 'houses',
