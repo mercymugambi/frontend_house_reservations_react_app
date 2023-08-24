@@ -8,7 +8,7 @@ import SplashPage from './components/SplashPage';
 import HomePage from './components/HomePage';
 import LoginForm from './components/sessions/LoginForm';
 import RegistrationForm from './components/sessions/RegistrationForm';
-// import AddHouse from './components/addHouse';
+import AddHouse from './components/addHouse';
 import "./styling/HousesList.css"
 import "./styling/HomePage.css"
 // import { useState } from 'react';
@@ -22,6 +22,7 @@ const App = () => (
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/homepage" element={<HomePage />} />
+        <Route path="/add-house" element={<AddHouse />} />
       </Routes>
     </Router>
   </Provider>

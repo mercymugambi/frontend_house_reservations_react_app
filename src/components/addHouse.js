@@ -1,88 +1,130 @@
-/* eslint-disable */
+import React, { useState } from 'react'; // Don't forget to import React and useState
+import { useDispatch } from 'react-redux';
+import { clearForm } from '../redux/houses/addHouseSlice';
 
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchApi } from "../redux/house/HousesSlice";
+const HouseForm = () => {
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    houseName: '',
+    description: '',
+    bedrooms: '',
+    bathrooms: '',
+    rent: '',
+    securityDeposit: '',
+    city: '',
+    contactPhoneNumber: '',
+    icon: null,
+  });
 
-const AddHouse = () => {
-    const dispatch = useDispatch()
-    const [dataList, setDataList] = useState([])
+  const handleInputChange = (field, value) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [field]: value,
+    }));
+  };
 
-    useEffect(() => {
-        const getData = JSON.parse(localStorage.getItem("data"));
-        if (getData) {
-            console.log("Data fetched from localStorage:", getData);
-            setDataList(getData);
-        }
-    }, []);
-    
-    const HouseSubmit = async (e) => {
-        e.preventDefault()
-        
-        const formData = new FormData(e.target)
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      icon: imageFile,
+    }));
+  };
 
-        const imageFile = formData.get('image');
-        const setImage = imageFile ? await convertToBase64(imageFile) : null;
-        
-        const setData = {
-            houseName: formData.get('houseName'),
-            dataListescription: formData.get('Description'),
-            bedrooms: Number(formData.get('bedrooms')),
-            bathrooms: Number(formData.get('bathrooms')),
-            rent: Number(formData.get('rent')),
-            security: formData.get('security'),
-            city: formData.get('city'),
-            icon: setImage,
-           contact_phone_number: Number(formData.get('phone'))
-        }
-        console.log("setdata :",setData);
-        
-        const updatedDataList = [...dataList, setData];
-        setDataList(updatedDataList);
+  const handleSubmit = () => {
+    const apiEndpoint = 'http://3000/api/v1/houses'; // Replace with your API endpoint
 
-        try {
-            localStorage.setItem('data', JSON.stringify(updatedDataList));
-            await dispatch(fetchApi({ setData: setData }));
-            console.log("localstorage" , updatedDataList);
-        } catch (error) {
-            console.error("Error while updating data:", error);
-        }
-        await dispatch(fetchApi(setData));
+    const formDataToSend = new FormData();
+    for (const field in formData) {
+      formDataToSend.append(field, formData[field]);
     }
 
-    const convertToBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                resolve(event.target.result);
-            };
-            reader.onerror = (error) => {
-                reject(error);
-            };
-            reader.readAsDataURL(file);
-        });
-    };
-    
-    return (
-        <>
-            <section className="AddHouse-container">
-                <h1>Create Home</h1>
-                <form onSubmit={HouseSubmit}>
-                    <input type="text" name="houseName" placeholder="House Name" />
-                    <input type="text" name="description" placeholder="Description" />
-                    <input type="number" name="bedrooms" placeholder="Number of Bedrooms" />
-                    <input type="number" name="bathrooms" placeholder="Number of Bathrooms" />
-                    <input type="number" name="rent" placeholder="Monthly Rent" />
-                    <input type="text" name="security" placeholder="Security Deposit" />
-                    <input type="text" name="city" placeholder="City" />
-                    <input type="number" name="contact_phone_number" placeholder="Contact Phone Number" />
-                    <input type="file" name="icon" accept="image/*" placeholder="Image URL" />
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
+    fetch(apiEndpoint, {
+      method: 'POST',
+      body: formDataToSend,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data sent successfully', data);
+        dispatch(clearForm());
+      })
+      .catch((error) => {
+        console.error('Error sending data', error);
+      });
+  };
 
-        </>
-    );
-}
+  return (
+    <>
+      <section className="AddHouse-container">
+        {isLoading && <p>Loading...</p>}
+        {error && (
+        <p>
+          Error:
+          {error}
+        </p>
+        )}
+        <h1>Create a House</h1>
+        <form ref={formRef} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={formData.houseName}
+            onChange={(e) => handleInputChange('houseName', e.target.value)}
+            placeholder="House Name"
+          />
+          <input
+            type="text"
+            value={formData.description}
+            onChange={(e) => handleInputChange('description', e.target.value)}
+            placeholder="Description"
+          />
+          <input
+            type="number"
+            value={formData.bedrooms}
+            onChange={(e) => handleInputChange('bedrooms', e.target.value)}
+            placeholder="Number of Bedrooms"
+          />
+          <input
+            type="number"
+            value={formData.bathrooms}
+            onChange={(e) => handleInputChange('bathrooms', e.target.value)}
+            placeholder="Number of Bathrooms"
+          />
+          <input
+            type="number"
+            value={formData.rent}
+            onChange={(e) => handleInputChange('rent', e.target.value)}
+            placeholder="Monthly Rent"
+          />
+          <input
+            type="text"
+            value={formData.securityDeposit}
+            onChange={(e) => handleInputChange('security_deposit', e.target.value)}
+            placeholder="Security Deposit"
+          />
+          <input
+            type="text"
+            value={formData.city}
+            onChange={(e) => handleInputChange('city', e.target.value)}
+            placeholder="City"
+          />
+          <input
+            type="number"
+            value={formData.contactPhoneNumber}
+            onChange={(e) => handleInputChange('contact_phone_number', e.target.value)}
+            placeholder="Contact Phone Number"
+          />
+          <input
+            type="file"
+            name="icon"
+            accept="image/*"
+            placeholder="Image URL"
+            onChange={handleImageChange}
+          />
+          <button onClick={handleSubmit}>Submit</button>
+        </form>
+      </section>
+    </>
+  );
+};
 
 export default AddHouse;
