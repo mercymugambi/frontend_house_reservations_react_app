@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchHouses } from '../redux/houses/housesSlice';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHouses } from "../redux/houses/housesSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -24,9 +24,7 @@ const HomePage = () => {
               </h4>
               <img src={house.icon} alt="House Icon" />
               <h2 className="detailTitle">
-                More Information about
-                {' '}
-                {house.name}
+                More Information about {house.name}
               </h2>
               <div className="info">
                 <p>House Name</p>
@@ -34,7 +32,7 @@ const HomePage = () => {
               </div>
               <div className="info">
                 <p>City</p>
-                <p>{house.city || 'N/A'}</p>
+                <p>{house.city || "N/A"}</p>
               </div>
               <div className="info">
                 <p>Description</p>
@@ -58,7 +56,7 @@ const HomePage = () => {
               </div>
               <div className="info">
                 <p>Contact Phone Number</p>
-                <p>{house.contact_phone_number || 'N/A'}</p>
+                <p>{house.contact_phone_number || "N/A"}</p>
               </div>
             </div>
           ))
