@@ -112,7 +112,6 @@
 
 // export default HouseForm;
 
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendHouses } from '../redux/houses/housesSlice';
@@ -135,7 +134,7 @@ const HouseForm = () => {
   });
 
   const handleSubmit = () => {
-    console.log(formData);
+    // console.log(formData);
     dispatch(sendHouses({ house: formData }));
   };
 
