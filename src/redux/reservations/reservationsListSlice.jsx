@@ -23,18 +23,11 @@ const reservationsListSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      // .addCase(fetchReservations.pending, (state) => {
-      //   state.isLoading = true;
-      // })
       .addCase(fetchReservations.fulfilled, (state, action) => ({
         ...state,
         reservations: action.payload,
         isLoading: false,
       }));
-    // .addCase(fetchReservations.rejected, (state, action) => {
-    //   state.error = action.error.message;
-    //   state.isLoading = false;
-    // });
   },
 });
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../redux/reservations/reservationsListSlice';
-// import ReservationForm from './ReservationForm';
 
 const ReservationsList = () => {
   const dispatch = useDispatch();
@@ -36,7 +35,6 @@ const ReservationsList = () => {
           </div>
         ))}
       </div>
-      {/* <ReservationForm reservation={reservations && reservations[0]} /> */}
     </div>
   );
 };

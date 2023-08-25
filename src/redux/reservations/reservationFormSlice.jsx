@@ -38,18 +38,11 @@ const ReservationFormSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      // .addCase(fetchReservationForm.pending, (state) => {
-      //   state.isLoading = true;
-      // })
       .addCase(fetchReservationForm.fulfilled, (state, action) => ({
         ...state,
         reservationForm: action.payload,
         isLoading: false,
       }));
-    // .addCase(fetchReservationForm.rejected, (state, action) => {
-    //   state.error = action.error.message;
-    //   state.isLoading = false;
-    // });
   },
 });
 

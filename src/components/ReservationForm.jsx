@@ -1,37 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservationForm } from '../redux/reservations/reservationFormSlice';
-// import { fetchReservationForm,
-// submitReservationForm } from '../redux/reservations/reservationFormSlice';
 
 const ReservationFormComponent = () => {
   const dispatch = useDispatch();
   const { reservationForm, isLoading, error } = useSelector(
     (state) => state.reservationForm,
   );
-  // const cities = useSelector((state) => state.houses.cities);
-
-  // const [selectedCity, setSelectedCity] = useState(
-  //   reservationForm.city || '',
-  // );
-
-  // const handleCityChange = (selectedCity) => {
-  //   setSelectedCity(selectedCity);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  // const formData = {
-  //   city: selectedCity,
-  // };
-
-  //   try {
-  //     await dispatch(submitReservationForm(formData));
-  //   } catch (error) {
-  //     <p>Error</p>;
-  //   }
-  // };
 
   useEffect(() => {
     dispatch(fetchReservationForm());
@@ -47,7 +22,6 @@ const ReservationFormComponent = () => {
       </p>
       )}
       {reservationForm && (
-        // <form onSubmit={handleSubmit}>
         <form>
           <h2>Book a House!</h2>
           <p>
@@ -61,16 +35,10 @@ const ReservationFormComponent = () => {
               placeholder="City"
               name="city"
               value={reservationForm.city}
-              // onChange={(e) => handleCityChange(e.target.value)}
             >
               <option value="" disabled>
                 City
               </option>
-              {/* {cities.map((city) => (
-                <option key={city.id} value={city.name}>
-                  {city.name}
-                </option>
-              ))} */}
             </select>
             <button type="submit">Submit</button>
           </div>
