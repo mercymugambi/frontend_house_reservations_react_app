@@ -33,7 +33,7 @@
 
 ## Rails Link
 
-  https://github.com/mercymugambi/backend_house_reservations_rails_app/
+https://github.com/mercymugambi/backend_house_reservations_rails_app/
 
 ## Key Features
 
@@ -98,18 +98,23 @@ Example command:
 rubocop -A
 ```
 
-
 ## 👥 Authors <a name="authors"></a>
 
 👥 **Mercy Mugambi**
+
 - GitHub: [@mercymugambi](https://github.com/mercymugambi)
 - Twitter: [@MercyMugambi15](https://twitter.com/MercyMugambi15)
 - LinkedIn: [mercymugambi](https://www.linkedin.com/in/mercymugambi)
 
+👤 **Esther Mawioo**
+
+- Github: [EstherMawioo](https://github.com/mumo-esther/mumo-esther)
+- Twitter: [EstherMawioo](https://twitter.com/EstherMawioo)
+- LinkedIn: [EstherMawioo](https://www.linkedin.com/in/esther-mawioo-58b636225/)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **-Make it interactive**
-
 
 <!-- CONTRIBUTING -->
 
@@ -119,20 +124,17 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [Issues Pages](https://github.com/mercymugambi/fronted_house_reservations_react_app/issues)
 
-
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project kindly give it a star⭐️.
 
-
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse.
-
 
 <!-- LICENSE -->
 

@@ -11,8 +11,7 @@ import RegistrationForm from './components/sessions/RegistrationForm';
 import HouseForm from './components/addHouse';
 import "./styling/HousesList.css"
 import "./styling/HomePage.css"
-// import DisplayHouseForm from './components/displayHouseForm';
-// import { useState } from 'react';
+import HouseDetails from './components/HouseDetails';
 
 const App = () => (
 
@@ -24,6 +23,7 @@ const App = () => (
         <Route path="/login" element={<LoginForm />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/add-house" element={<HouseForm />} />
+        <Route path="/house/:id" element={<HouseDetails />} />
       </Routes>
     </Router>
   </Provider>
