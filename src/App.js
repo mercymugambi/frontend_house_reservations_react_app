@@ -7,10 +7,9 @@ import HomePage from './components/HomePage';
 import LoginForm from './components/sessions/LoginForm';
 import RegistrationForm from './components/sessions/RegistrationForm';
 import HouseForm from './components/addHouse';
-import "./styling/HousesList.css"
-import "./styling/HomePage.css"
+import './styling/HousesList.css';
+import './styling/HomePage.css';
 import HouseDetails from './components/HouseDetails';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReservationsList from './components/ReservationsList';
 import ReservationForm from './components/ReservationForm';
 
@@ -25,7 +24,7 @@ const App = () => (
         <Route path="/add-house" element={<HouseForm />} />
         <Route path="/house/:id" element={<HouseDetails />} />
         <Route exact path="/reservations" element={<ReservationsList />} />
-      <Route exact path="/reservation-form" element={<ReservationForm />} />
+        <Route exact path="/reservation-form" element={<ReservationForm />} />
       </Routes>
     </Router>
   </Provider>
