@@ -47,7 +47,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div>
+    <div className="registration">
       <h2>Register</h2>
       {registrationSuccess ? (
         <div>
@@ -55,16 +55,14 @@ const RegistrationForm = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">
-            Name:
-            <input
-              id="name"
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Name"
+          />
           {registrationFailure && errorData && errorData.name && (
             <p>
               Name
@@ -72,16 +70,14 @@ const RegistrationForm = () => {
             </p>
           )}
           <br />
-          <label htmlFor="email">
-            Email:
-            <input
-              id="email"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="email"
+          />
           {registrationFailure && errorData && errorData.email && (
             <p>
               Email
@@ -89,16 +85,14 @@ const RegistrationForm = () => {
             </p>
           )}
           <br />
-          <label htmlFor="password">
-            Password:
-            <input
-              id="password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
 
           {registrationFailure && errorData && errorData.password && (
             <p>
@@ -107,16 +101,14 @@ const RegistrationForm = () => {
             </p>
           )}
           <br />
-          <label htmlFor="confirm_password">
-            Confirm Password:
-            <input
-              id="confirm_password"
-              type="password"
-              name="password_confirmation"
-              value={formData.password_confirmation}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            id="confirm_password"
+            type="password"
+            name="password_confirmation"
+            value={formData.password_confirmation}
+            onChange={handleChange}
+            placeholder="Confirm Password"
+          />
           {registrationFailure && errorData && errorData.password_confirmation && (
             <p>
               Password
@@ -124,10 +116,12 @@ const RegistrationForm = () => {
             </p>
           )}
           <br />
-          <button type="submit">Register</button>
+          <div className="horizontal-buttons">
+            <button type="submit">Register</button>
+            <Link to="/login" className="button">Login</Link>
+          </div>
         </form>
       )}
-      <Link to="/login">Login</Link>
     </div>
   );
 };

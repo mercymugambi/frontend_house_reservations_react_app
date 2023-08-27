@@ -47,7 +47,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h2>Login</h2>
       {loginSuccess ? (
         <div>
@@ -55,28 +55,27 @@ const LoginForm = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <label htmlFor>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="email"
+          />
           <br />
-          <label htmlFor>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            className="password-value"
+          />
           <br />
-          <button type="submit">Login</button>
-          <Link to="/register">Register</Link>
+          <div className="horizontal-buttons">
+            <button type="submit">Login</button>
+            <Link to="/register" className="button">Register</Link>
+          </div>
         </form>
 
       )}
