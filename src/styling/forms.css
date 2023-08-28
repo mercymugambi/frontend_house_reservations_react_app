@@ -17,8 +17,17 @@ form {
   color: #fff;
 }
 
+#addHouse-form {
+  width: 60%;
+  justify-items: center;
+}
+
+.add-house-page h2,
 form h2 {
   color: #fff;
+}
+
+form h2 {
   border-bottom: 1px solid #fff;
 }
 

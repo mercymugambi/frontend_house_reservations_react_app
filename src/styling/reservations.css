@@ -31,14 +31,29 @@ a {
 }
 
 /* Reservations */
-.reservations-page,
-.home-page {
+.reservation-page,
+.home-page,
+.add-house-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   color: #000;
+}
+
+.reservation-page,
+.add-house-page {
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(6, 5, 26, 0.5)), url('https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=828&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reservation-page {
+  margin: -20px -30px;
+  padding: 150px 80px 0 80px;
+  height: 100vh;
 }
 
 .main-container {
@@ -83,20 +98,6 @@ text-align: ce;
   text-align: left;
   font-size: 10px;
   color: #5f5f5f;
-}
-
-/* Reservation Form Page */
-.reservation-page {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(6, 5, 26, 0.4)), url('https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=828&q=80');
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: -20px -30px;
-  padding: 150px 80px 0 80px;
-  height: 100vh;
 }
 
 @media screen and (min-width: 768px) {

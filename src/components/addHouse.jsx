@@ -33,10 +33,10 @@ const HouseForm = () => {
 
   return (
     <>
-      <section className="AddHouse-container">
+      <section className="add-house-page">
         {isLoading && <p>Loading...</p>}
-        <h1>Create a House</h1>
-        <form onSubmit={handleSubmit}>
+        <h2>Create a House</h2>
+        <form id="addHouse-form" onSubmit={handleSubmit}>
           <input
             type="text"
             value={formData.house_name}
@@ -99,7 +99,9 @@ const HouseForm = () => {
             onChange={(e) => handleInputChange('admin_user_id', e.target.value)}
             placeholder="admin_user_id"
           />
-          <button type="button" onClick={handleSubmit}>Submit</button>
+          <div className="horixontal-buttons"> 
+            <button type="button" onClick={handleSubmit}>Submit</button>
+          </div>
         </form>
       </section>
     </>
