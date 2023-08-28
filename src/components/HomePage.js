@@ -13,29 +13,31 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h2>Home Page</h2>
+    <div className="home-page">
       <LogoutButton />
+      <h2>Home Page</h2>
       {isLoading && <h2>Loading...</h2>}
       {error && <p>{error}</p>}
       <div className="main-container">
         {houses.length > 0 ? (
           houses.map((house) => (
             <Link to={`/house/${house.id}`} key={house.id}>
-              <div className="container">
-                <h4>
-                  House:
-                  {house.id}
-                </h4>
-                <img src={house.icon} alt="House Icon" />
-                <p>
-                  name:
-                  {house.name}
-                </p>
-                <p>
-                  description:
-                  {house.description}
-                </p>
+              <div className="homepage-container">
+                <img className="icon" src={house.icon} alt="House Icon" />
+                <div className="lower-part">
+                  {/* <h4>
+                    House:
+                    {house.id}
+                  </h4> */}
+                  <h4>
+                    name:
+                    {house.name}
+                  </h4>
+                  <p>
+                    description:
+                    {house.description}
+                  </p>
+                </div>
               </div>
             </Link>
           ))

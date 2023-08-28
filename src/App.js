@@ -7,8 +7,6 @@ import HomePage from './components/HomePage';
 import LoginForm from './components/sessions/LoginForm';
 import RegistrationForm from './components/sessions/RegistrationForm';
 import HouseForm from './components/addHouse';
-import './styling/HousesList.css';
-import './styling/HomePage.css';
 import HouseDetails from './components/HouseDetails';
 import ReservationsList from './components/ReservationsList';
 import ReservationForm from './components/ReservationForm';
