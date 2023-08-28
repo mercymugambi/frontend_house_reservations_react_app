@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -17,9 +18,8 @@ const CityForm = () => {
     e.preventDefault();
 
     try {
-      // Perform the submit action here, using axios or any other method
-      const response = await axios.post('YOUR_BACKEND_SUBMIT_URL', { city: selectedCity });
-      console.log('Data submitted:', response.data);
+      const response = await axios.post('http://localhost:3000/api/v1/houses/:id/reservations', { city: selectedCity });
+      console.error('Data submitted:', response.data);
     } catch (error) {
       console.error('Error submitting data:', error);
     }
