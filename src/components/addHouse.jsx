@@ -99,7 +99,7 @@ const HouseForm = () => {
             onChange={(e) => handleInputChange('admin_user_id', e.target.value)}
             placeholder="admin_user_id"
           />
-          <div className="horixontal-buttons"> 
+          <div className="horixontal-buttons">
             <button type="button" onClick={handleSubmit}>Submit</button>
           </div>
         </form>

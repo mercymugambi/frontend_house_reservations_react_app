@@ -13,7 +13,7 @@ const ReservationsList = () => {
   }, [dispatch]);
 
   return (
-    <div className="reservations-page">
+    <div className="reservations-list-page">
       <h2>Your Resevations</h2>
       {isLoading && <h2>Loading...</h2>}
       {error && <p>{error}</p>}
