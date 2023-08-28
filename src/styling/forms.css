@@ -22,13 +22,13 @@ form {
   justify-items: center;
 }
 
-.add-house-page h2,
-form h2 {
-  color: #fff;
-}
-
 form h2 {
   border-bottom: 1px solid #fff;
+}
+
+form h2,
+.add-house-page h2 {
+  color: #fff;
 }
 
 .horizontal-buttons {
