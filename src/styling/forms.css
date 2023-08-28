@@ -48,6 +48,10 @@ form {
     background-color: transparent;
   }
   
+  option {
+    color: #000;
+  }
+  
   button {
     cursor: pointer;
   }
