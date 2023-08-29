@@ -19,12 +19,14 @@ const HouseForm = () => {
     admin_user_id: 0,
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // console.log(formData);
+    e.preventDefault();
     dispatch(sendHouses({ house: formData }));
   };
 
   const handleInputChange = (field, value) => {
+    console.log(`Field: ${field}, Value: ${value}`);
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,
@@ -100,7 +102,7 @@ const HouseForm = () => {
             placeholder="admin_user_id"
           />
           <div className="horixontal-buttons">
-            <button type="button" onClick={handleSubmit}>Submit</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </section>
