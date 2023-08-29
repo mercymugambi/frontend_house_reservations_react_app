@@ -28,7 +28,9 @@ function DeleteItem() {
         {activeReservations.map((reservation) => (
           <li key={reservation.id}>
             {reservation.house}
-            <button onClick={() => handleDelete(reservation.id)}>Delete</button>
+            <button type="submit" onClick={() => handleDelete(reservation.id)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
