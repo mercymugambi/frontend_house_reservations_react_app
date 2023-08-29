@@ -5,9 +5,9 @@ import citiesSliceReducer from './reservations/citiesSlice';
 
 const store = configureStore({
   reducer: {
+    houses: housesReducer,
     reservations: reservationsListReducer,
     cities: citiesSliceReducer,
-    houses: housesReducer,
   },
 });
 
