@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import LoginForm from './components/sessions/LoginForm';
 import RegistrationForm from './components/sessions/RegistrationForm';
 import HouseDetails from './components/HouseDetails';
+import DeleteItem from './components/DeleteItem';
 
 const App = () => (
   <Provider store={store}>
@@ -17,6 +18,7 @@ const App = () => (
         <Route path="/login" element={<LoginForm />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/house/:id" element={<HouseDetails />} />
+        <Route path="/deletehouse" element={<DeleteItem />} />
       </Routes>
     </Router>
   </Provider>
