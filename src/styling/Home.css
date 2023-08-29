@@ -1,107 +1,106 @@
 .homepage {
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
-    margin-top: 2%;
-  }
-  
-  .house-container {
-    display: flex;
-    width: 60vw; /* Make sure the container takes full width */
-    flex-wrap: nowrap; /* Prevent items from wrapping */
-    overflow: hidden;
-    transition: transform 0.5s ease; /* For smooth sliding effect */
-  }
-  
-  .select {
-    display: flex;
-    flex-direction: column;
-    margin-top: 14%;
-    align-items: center;
-  }
-  
-  .house-control2 button {
-    height: 50px;
-    margin-top: 20vh;
-    font-weight: bold;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 2%;
+}
 
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    background: greenyellow;
-    border-color: greenyellow;
-    color: white !important;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-  }
-  
-  .house-control1 button {
-    height: 50px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-top: 20vh;
-    font-weight: bold;
-    background: greenyellow;
-    border-color: greenyellow;
-    color: white !important;
-    justify-content: center;
-    font-size: 2rem;
-  }
-  
-  .disabledButton {
-    background: gray !important;
-    border: none !important;
-  }
-  
+.house-container {
+  display: flex;
+  width: 60vw; /* Make sure the container takes full width */
+  flex-wrap: nowrap; /* Prevent items from wrapping */
+  overflow: hidden;
+  transition: transform 0.5s ease; /* For smooth sliding effect */
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14%;
+  align-items: center;
+}
+
+.house-control2 button {
+  height: 50px;
+  margin-top: 20vh;
+  font-weight: bold;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: greenyellow;
+  border-color: greenyellow;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.house-control1 button {
+  height: 50px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-top: 20vh;
+  font-weight: bold;
+  background: greenyellow;
+  border-color: greenyellow;
+  color: white !important;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.disabledButton {
+  background: gray !important;
+  border: none !important;
+}
+
+.house-item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: center;
+  text-align: center;
+  margin-right: 16px;
+  transition: transform 0.5s ease;
+  text-decoration: none;
+}
+
+.house-item h1 {
+  color: #333;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 27px;
+}
+
+.house-item p {
+  padding: 2vh 4vw;
+  color: #222;
+  margin-top: -2vh;
+}
+
+.house-item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+@media (max-width: 600px) {
   .house-item {
-    display: flex;
+    margin-right: 0;
+  }
+
+  .house-control1,
+  .house-control2 {
+    display: none;
+  }
+
+  .house-container {
     flex-direction: column;
-    flex: 0 0 auto;
+    width: 100vw;
     align-items: center;
-    text-align: center;
-    margin-right: 16px;
-    transition: transform 0.5s ease;
-    text-decoration: none;
+    gap: 10px;
   }
-  
-  .house-item h1 {
-    color: #333;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 27px;
-  }
-  
-  .house-item p {
-    padding: 2vh 4vw;
-    color: #222;
-    margin-top: -2vh;
-  }
-  
-  .house-item img {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-  }
-  
-  @media (max-width: 600px) {
-    .house-item {
-      margin-right: 0;
-    }
-  
-    .house-control1,
-    .house-control2 {
-      display: none;
-    }
-  
-    .house-container {
-      flex-direction: column;
-      width: 100vw;
-      align-items: center;
-      gap: 10px;
-    }
-  }
+}
