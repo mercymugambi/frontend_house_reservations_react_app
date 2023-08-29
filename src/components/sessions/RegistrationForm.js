@@ -51,7 +51,12 @@ const RegistrationForm = () => {
       <h2>Register</h2>
       {registrationSuccess ? (
         <div>
-          <p>Registration successful! You can now log in.</p>
+          <p>
+            Registration successful! You can now
+            {' '}
+            <Link to="/login">log in</Link>
+            .
+          </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
