@@ -21,6 +21,16 @@ const LoginForm = () => {
   };
 
   const url = 'http://127.0.0.1:3000/api/v1/users/sign_in';
+
+  const handleSuccessfulLogin = () => {
+    setLoginSuccess(true);
+
+    // Refresh the page after a successful login
+    setTimeout(() => {
+      window.location.reload();
+    }, 1);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,7 +46,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('userData', JSON.stringify(data));
-        setLoginSuccess(true);
+        handleSuccessfulLogin();
         navigate('/homepage');
       } else {
         setLoginFailure(true);
@@ -77,7 +87,6 @@ const LoginForm = () => {
             <Link to="/register" className="button">Register</Link>
           </div>
         </form>
-
       )}
 
       {loginFailure && (
@@ -86,7 +95,6 @@ const LoginForm = () => {
       </div>
       )}
     </div>
-
   );
 };
 
