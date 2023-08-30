@@ -1,51 +1,93 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import '../styling/Home.css';
 import { Link } from 'react-router-dom';
 import { fetchHouses } from '../redux/houses/housesSlice';
-import LogoutButton from './LogoutButton';
 
 const HomePage = () => {
+  const [left, setLeft] = useState(0);
   const dispatch = useDispatch();
-  const { houses, isLoading, error } = useSelector((state) => state.houses);
+  const { houses } = useSelector((state) => state.houses);
 
   useEffect(() => {
     dispatch(fetchHouses());
   }, [dispatch]);
 
+  const scrollContainerRef = useRef(null);
+
+  const handleRightScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      container.scrollBy({ left: 300, behavior: 'smooth' });
+      setLeft(container.scrollLeft);
+    }
+  };
+
+  const handleLeftScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      container.scrollBy({ left: -300, behavior: 'smooth' });
+      setLeft(container.scrollLeft);
+    }
+  };
+
   return (
-    <div className="home-page">
-      <LogoutButton />
-      <h2>Home Page</h2>
-      {isLoading && <h2>Loading...</h2>}
-      {error && <p>{error}</p>}
-      <div className="main-container">
-        {houses.length > 0 ? (
-          houses.map((house) => (
-            <Link to={`/house/${house.id}`} key={house.id}>
-              <div className="homepage-container">
-                <img className="icon" src={house.icon} alt="House Icon" />
-                <div className="lower-part">
-                  {/* <h4>
-                    House:
-                    {house.id}
-                  </h4> */}
-                  <h4>
-                    name:
-                    {house.name}
-                  </h4>
-                  <p>
-                    description:
-                    {house.description}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>No houses available.</p>
-        )}
+    <>
+      <div className="right-content">
+        <div className="select">
+          <h1>LATEST HOUSES</h1>
+          <p>Please select a house</p>
+        </div>
+        <div className="homepage">
+
+          <div className="house-control1">
+            <button
+              className={`${left === 0 && 'disabledButton'}`}
+              type="button"
+              disabled={left === 0}
+              onClick={handleLeftScroll}
+            >
+              {'<'}
+            </button>
+          </div>
+          <div className="house-container" ref={scrollContainerRef}>
+            {houses.length > 0 ? (
+              houses.map((house) => (
+                <Link
+                  to={`/House/${house.id}`}
+                  key={house.id}
+                  className="house-item"
+                >
+                  <img src={house.image} alt={house.name} />
+                  <h1>{house.name}</h1>
+                  <p>{house.description}</p>
+                </Link>
+              ))
+            ) : (
+              <p>No houses available</p>
+            )}
+          </div>
+          <div className="house-control2">
+            <button
+              className={`${
+                scrollContainerRef?.current?.scrollWidth - left
+              === scrollContainerRef?.current?.clientWidth
+                  ? 'disabledButton'
+                  : ''
+              }`}
+              disabled={
+              scrollContainerRef?.current?.scrollWidth - left
+              === scrollContainerRef?.current?.clientWidth
+            }
+              type="button"
+              onClick={handleRightScroll}
+            >
+              {'>'}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

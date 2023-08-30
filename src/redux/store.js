@@ -7,11 +7,11 @@ import reservationHousesReducer from './reservations/reservationHousesSlice';
 
 const store = configureStore({
   reducer: {
+    houses: housesReducer,
     user: userReducer,
     reservations: reservationsListReducer,
     cities: citiesSliceReducer,
     reservationHouses: reservationHousesReducer,
-    houses: housesReducer,
   },
 });
 

@@ -26,7 +26,7 @@ const HouseForm = () => {
   };
 
   const handleInputChange = (field, value) => {
-    console.log(`Field: ${field}, Value: ${value}`);
+    // console.log(`Field: ${field}, Value: ${value}`);
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,
@@ -43,7 +43,7 @@ const HouseForm = () => {
             type="text"
             value={formData.house_name}
             onChange={(e) => handleInputChange('house_name', e.target.value)}
-            placeholder="Name"
+            placeholder="House Name"
           />
           <input
             type="text"
