@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 const baseUrl = 'http://localhost:3000/api/v1/houses/:house_id/reservations';
 
@@ -18,15 +17,16 @@ export const fetchReservations = createAsyncThunk(
   },
 );
 
-export const sendReservations = createAsyncThunk('reservations/sendReservations', async (formData) => {
-  const response = await axios.post(baseUrl, formData);
-  return response.data;
-});
-
 const reservationsListSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {},
+  reducers: {
+    setReservations(state, action) {
+      // state.reservations = [...state.reservations, action.payload]
+      localStorage.setItem('reservations', JSON.stringify([...state.reservations, action.payload]))
+      return { ...state, reservations: [...state.reservations, action.payload] };
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchReservations.fulfilled, (state, action) => ({
@@ -37,4 +37,5 @@ const reservationsListSlice = createSlice({
   },
 });
 
+export const { setReservations } = reservationsListSlice.actions;
 export default reservationsListSlice.reducer;
