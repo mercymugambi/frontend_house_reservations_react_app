@@ -32,12 +32,12 @@ const CityForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newObj = {
-      date: date,
-      selectedCity: selectedCity,
-      selectedHouse: selectedHouse
-    }
-    dispatch(setReservations(newObj))
-    navigate('/reservations')
+      date,
+      selectedCity,
+      selectedHouse,
+    };
+    dispatch(setReservations(newObj));
+    navigate('/reservations');
     setError(false);
   };
 

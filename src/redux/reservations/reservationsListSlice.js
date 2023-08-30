@@ -23,7 +23,7 @@ const reservationsListSlice = createSlice({
   reducers: {
     setReservations(state, action) {
       // state.reservations = [...state.reservations, action.payload]
-      localStorage.setItem('reservations', JSON.stringify([...state.reservations, action.payload]))
+      localStorage.setItem('reservations', JSON.stringify([...state.reservations, action.payload]));
       return { ...state, reservations: [...state.reservations, action.payload] };
     },
   },

@@ -20,13 +20,11 @@ const HouseForm = () => {
   });
 
   const handleSubmit = (e) => {
-    // console.log(formData);
     e.preventDefault();
     dispatch(sendHouses({ house: formData }));
   };
 
   const handleInputChange = (field, value) => {
-    // console.log(`Field: ${field}, Value: ${value}`);
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,

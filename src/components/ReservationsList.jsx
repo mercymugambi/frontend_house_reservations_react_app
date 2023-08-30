@@ -7,13 +7,13 @@ const ReservationsList = () => {
   const { reservations, isLoading, error } = useSelector(
     (state) => state.reservations,
   );
-  
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('reservations'));
     if (data) {
       data.map((datum) => {
         dispatch(setReservations(datum));
-      })
+      });
     }
   }, [dispatch]);
 
