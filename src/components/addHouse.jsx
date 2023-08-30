@@ -11,12 +11,12 @@ const HouseForm = () => {
     house_name: '',
     city: '',
     description: '',
-    bedrooms: 0,
-    bathrooms: 0,
-    rent: 0,
-    security_deposit: 0,
+    bedrooms: '',
+    bathrooms: '',
+    rent: '',
+    security_deposit: '',
     contact_phone_number: '',
-    admin_user_id: 0,
+    admin_user_id: '',
   });
 
   const handleSubmit = () => {
