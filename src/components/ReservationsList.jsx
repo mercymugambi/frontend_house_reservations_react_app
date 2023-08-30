@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../redux/reservations/reservationsListSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { setReservations } from '../redux/reservations/reservationsListSlice';
 
 const ReservationsList = () => {
   const dispatch = useDispatch();
   const { reservations, isLoading, error } = useSelector(
     (state) => state.reservations,
   );
-
+  
   useEffect(() => {
-    dispatch(fetchReservations());
+    const data = JSON.parse(localStorage.getItem('reservations'));
+    if (data) {
+      data.map((datum) => {
+        dispatch(setReservations(datum));
+      })
+    }
   }, [dispatch]);
 
   return (
@@ -18,19 +23,19 @@ const ReservationsList = () => {
       {isLoading && <h2>Loading...</h2>}
       {error && <p>{error}</p>}
       <div className="main-container">
-        {reservations && reservations.map((reservation) => (
-          <div className="container" key={reservation.id}>
+        {reservations && reservations.map((reservation, index) => (
+          <div className="container" key={index}>
             <h4>
-              Reservation:
-              {reservation.id}
+              Reservation Date:
+              {reservation.date}
             </h4>
             <p>
               Reserved House:
-              {reservation.house_id}
+              {reservation.selectedHouse}
             </p>
             <p>
               City:
-              {reservation.city}
+              {reservation.selectedCity}
             </p>
           </div>
         ))}
