@@ -69,22 +69,22 @@ const NavBar = () => {
         <span className="links">
           <li className={`${params.pathname.split('/')[1] === 'homepage' && 'active'}`}>
             <Link className="link" to="/homepage">
-              Houses
+              Home Page
             </Link>
           </li>
           <li
             className={`${params.pathname.split('/')[1] === 'ReservationForm' && 'active'
             }`}
           >
-            <Link className="link" to="/ReservationForm">
-              Reserve
+            <Link className="link" to="/reservation-form">
+              Make Reservation
             </Link>
           </li>
           <li
             className={`${params.pathname.split('/')[1] === 'ReservationList' && 'active'
             }`}
           >
-            <Link className="link" to="/ReservationList">
+            <Link className="link" to="/reservations">
               My Reservations
             </Link>
           </li>
