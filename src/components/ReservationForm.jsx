@@ -33,12 +33,20 @@ const CityForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newObj = {
+    const newArr = [{
       date,
       selectedCity,
       selectedHouse,
-    };
-    dispatch(setReservations(newObj));
+    }];
+    const stored = JSON.parse(localStorage.getItem('reserved'))
+    if (stored){
+      localStorage.setItem('reserved', JSON.stringify([...stored, ...newArr]))
+      dispatch(setReservations([...stored, ...newArr]));
+    }else{
+      localStorage.setItem('reserved', JSON.stringify(newArr))
+      dispatch(setReservations(newArr));
+
+    }
     navigate('/reservations');
     setError(false);
   };
