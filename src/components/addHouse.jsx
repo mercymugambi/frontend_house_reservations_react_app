@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { sendHouses } from '../redux/houses/housesSlice';
 
 const HouseForm = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.houses.isLoading);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     icon: '',
@@ -22,6 +24,7 @@ const HouseForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(sendHouses({ house: formData }));
+    navigate('/homepage');
   };
 
   const handleInputChange = (field, value) => {
