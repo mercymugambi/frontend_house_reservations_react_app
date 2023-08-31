@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import SplashPage from "./components/SplashPage";
-import HomePage from "./components/HomePage";
-import LoginForm from "./components/sessions/LoginForm";
-import RegistrationForm from "./components/sessions/RegistrationForm";
-import HouseForm from "./components/addHouse";
-import ReservationsList from "./components/ReservationsList";
-import ReservationForm from "./components/ReservationForm";
-import { fetchHouses } from "./redux/houses/housesSlice";
-import NavBar from "./components/NavBar";
-import HouseDetails from "./components/HouseDetails";
-import DeleteHouse from "./components/DeleteHouse";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import SplashPage from './components/SplashPage';
+import HomePage from './components/HomePage';
+import LoginForm from './components/sessions/LoginForm';
+import RegistrationForm from './components/sessions/RegistrationForm';
+import HouseForm from './components/addHouse';
+import ReservationsList from './components/ReservationsList';
+import ReservationForm from './components/ReservationForm';
+import { fetchHouses } from './redux/houses/housesSlice';
+import NavBar from './components/NavBar';
+import HouseDetails from './components/HouseDetails';
+import DeleteHouse from './components/DeleteHouse';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const App = () => {
   useEffect(() => {
     // Determine if NavBar should be shown based on the route
     const currentPath = window.location.pathname;
-    setShouldShowNavBar(currentPath !== "/" && currentPath !== "/login");
+    setShouldShowNavBar(currentPath !== '/' && currentPath !== '/login');
   }, []);
 
   return (
