@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import '../styling/Home.css';
 import { Link } from 'react-router-dom';
 import { fetchHouses } from '../redux/houses/housesSlice';
+import '../styling/Home.css';
 
 const HomePage = () => {
   const [left, setLeft] = useState(0);
@@ -39,7 +39,6 @@ const HomePage = () => {
           <p>Please select a house</p>
         </div>
         <div className="homepage">
-
           <div className="house-control1">
             <button
               className={`${left === 0 && 'disabledButton'}`}
@@ -78,14 +77,14 @@ const HomePage = () => {
             <button
               className={`${
                 scrollContainerRef?.current?.scrollWidth - left
-              === scrollContainerRef?.current?.clientWidth
+                === scrollContainerRef?.current?.clientWidth
                   ? 'disabledButton'
                   : ''
               }`}
               disabled={
-              scrollContainerRef?.current?.scrollWidth - left
-              === scrollContainerRef?.current?.clientWidth
-            }
+                scrollContainerRef?.current?.scrollWidth - left
+                === scrollContainerRef?.current?.clientWidth
+              }
               type="button"
               onClick={handleRightScroll}
             >
