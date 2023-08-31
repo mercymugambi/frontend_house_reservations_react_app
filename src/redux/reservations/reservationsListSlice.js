@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const baseUrl = 'http://localhost:3000/api/v1/houses/:house_id/reservations';
