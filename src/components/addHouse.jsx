@@ -20,8 +20,19 @@ const HouseForm = () => {
   });
 
   const handleSubmit = () => {
-    // console.log(formData);
     dispatch(sendHouses({ house: formData }));
+    setFormData({
+      icon: '',
+      house_name: '',
+      city: '',
+      description: '',
+      bedrooms: '',
+      bathrooms: '',
+      rent: '',
+      security_deposit: '',
+      contact_phone_number: '',
+      admin_user_id: '',
+    });
   };
 
   const handleInputChange = (field, value) => {
