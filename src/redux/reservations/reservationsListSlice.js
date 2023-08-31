@@ -1,10 +1,9 @@
-/* eslint-disable */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const baseUrl = 'http://localhost:3000/api/v1/houses/:house_id/reservations';
 
 const initialState = {
-  reservations: [],
+  reserved: [],
   isLoading: false,
   error: null,
 };
@@ -23,9 +22,7 @@ const reservationsListSlice = createSlice({
   initialState,
   reducers: {
     setReservations(state, action) {
-      // state.reservations = [...state.reservations, action.payload]
-      localStorage.setItem('reservations', JSON.stringify([...state.reservations, action.payload]));
-      return { ...state, reservations: [...state.reservations, action.payload] };
+      return { ...state, reserved: [...action.payload] };
     },
   },
   extraReducers(builder) {
