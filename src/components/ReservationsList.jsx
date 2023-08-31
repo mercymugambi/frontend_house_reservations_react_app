@@ -1,21 +1,16 @@
-/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setReservations } from '../redux/reservations/reservationsListSlice';
 
 const ReservationsList = () => {
   const dispatch = useDispatch();
-  const { reservations, isLoading, error } = useSelector(
+  const { reserved, isLoading, error } = useSelector(
     (state) => state.reservations,
   );
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('reservations'));
-    if (data) {
-      data.map((datum) => {
-        dispatch(setReservations(datum));
-      });
-    }
+    const data = JSON.parse(localStorage.getItem('reserved'));
+    if (data) dispatch(setReservations(data));
   }, [dispatch]);
 
   return (
@@ -24,7 +19,7 @@ const ReservationsList = () => {
       {isLoading && <h2>Loading...</h2>}
       {error && <p>{error}</p>}
       <div className="main-container">
-        {reservations && reservations.map((reservation, index) => (
+        {reserved && reserved.map((reservation, index) => (
           <div className="container" key={index}>
             <h4>
               Reservation Date:
