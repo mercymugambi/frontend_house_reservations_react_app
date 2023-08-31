@@ -1,6 +1,18 @@
-button {
+.reserve-btn {
   cursor: pointer;
-  background-color: gray;
+  background-color: #21893e;
+  width: 160px;
+  font-size: 14px;
+}
+
+.reserve-btn .navlink{
+  color:white;
+  font-weight: 500;
+}
+
+.reserve-btn .navlink:hover {
+  color: #21893e;
+  background-color: #ebfcea;
 }
 
 .deleted-message {
