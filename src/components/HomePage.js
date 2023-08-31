@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHouses } from "../redux/houses/housesSlice";
-import LogoutButton from "./LogoutButton";
-import "../styling/HomePage.css"; // Import the CSS file for the modal styles
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchHouses } from '../redux/houses/housesSlice';
+import LogoutButton from './LogoutButton';
+import '../styling/HomePage.css'; // Import the CSS file for the modal styles
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const HomePage = () => {
               tabIndex={0}
               onClick={() => handleHouseClick(house)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
+                if (e.key === 'Enter') {
                   handleHouseClick(house);
                 }
               }}
@@ -63,7 +63,7 @@ const HomePage = () => {
         )}
       </div>
       {selectedHouse && (
-        <div className={`modal ${selectedHouse ? "modal-show" : ""}`}>
+        <div className={`modal ${selectedHouse ? 'modal-show' : ''}`}>
           <div className="modal-content">
             <button
               type="submit"
@@ -74,7 +74,9 @@ const HomePage = () => {
               &times;
             </button>
             <h2 className="detailTitle">
-              More Information about {selectedHouse.name}
+              More Information about
+              {' '}
+              {selectedHouse.name}
             </h2>
             <img src={selectedHouse.icon} alt="House Icon" />
             <div className="info">
@@ -83,7 +85,7 @@ const HomePage = () => {
             </div>
             <div className="info">
               <p>City:</p>
-              <p>{selectedHouse.city || "N/A"}</p>
+              <p>{selectedHouse.city || 'N/A'}</p>
             </div>
             <div className="info">
               <p>Description:</p>
@@ -107,7 +109,7 @@ const HomePage = () => {
             </div>
             <div className="info">
               <p>Contact Phone Number:</p>
-              <p>{selectedHouse.contact_phone_number || "N/A"}</p>
+              <p>{selectedHouse.contact_phone_number || 'N/A'}</p>
             </div>
           </div>
         </div>
