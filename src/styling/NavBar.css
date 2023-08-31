@@ -12,7 +12,7 @@
   position: absolute;
   top: 70px;
   left: 0;
-  background-color: #52a44f;
+  background-color: #21893e;;
   width: 100%;
   padding: 10px;
 }
@@ -85,11 +85,15 @@
 
 .social {
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   list-style: none;
-  width: 50px;
+  width: 100%;
+  margin-left: 40px;
+}
+
+.social li {
+  height: 2rem;
+  width: 2rem;
 }
 
 .links li a {
@@ -99,7 +103,7 @@
 
 .active {
   font-weight: bold;
-  background: #42aa30;
+  background: #21893e;;
   color: white !important;
 }
 
@@ -118,11 +122,6 @@
   border: none;
   width: 40px;
   height: 40px;
-}
-
-.social-logo {
-  height: 2rem;
-  width: 2rem;
 }
 
 .copyright {

@@ -29,6 +29,7 @@ const CityForm = () => {
       setHouseId(houseId);
       setIsHouse(true);
     }
+    navigate('/reservations');
   }, [dispatch, houseId]);
 
   const handleSubmit = async (e) => {
