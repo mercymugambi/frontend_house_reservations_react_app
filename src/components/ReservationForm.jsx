@@ -1,28 +1,54 @@
 /* eslint-disable */
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 import { fetchCities } from '../redux/reservations/citiesSlice';
+import { fetchHouseForReservation } from '../redux/reservations/reservationHousesSlice';
+import { setReservations } from '../redux/reservations/reservationsListSlice';
 
 const CityForm = () => {
   const dispatch = useDispatch();
-  const { cities } = useSelector((state) => state.cities);
-
+  const houses = useSelector((state) => state.reservationHouses.reservationHouses);
+  const cities = useSelector((state) => state.cities.cities);
   const [selectedCity, setSelectedCity] = useState('');
+  const [selectedHouse, setSelectedHouse] = useState('');
+  const [date, setDate] = useState('');
+  const [error, setError] = useState(false);
+  // const user = useSelector((store) => store.user.userData);
+  const { houseId } = useParams();
+  const [isHouse, setIsHouse] = useState(false);
+  const [house_id, setHouseId] = useState('');
+  // const [city_id, setCityId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchCities());
-  }, [dispatch]);
+    dispatch(fetchHouseForReservation());
+    if (houseId) {
+      setHouseId(houseId);
+      setIsHouse(true);
+    }
+  }, [dispatch, houseId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newArr = [{
+      date,
+      selectedCity,
+      selectedHouse,
+    }];
+    const stored = JSON.parse(localStorage.getItem('reserved'))
+    if (stored){
+      localStorage.setItem('reserved', JSON.stringify([...stored, ...newArr]))
+      dispatch(setReservations([...stored, ...newArr]));
+    }else{
+      localStorage.setItem('reserved', JSON.stringify(newArr))
+      dispatch(setReservations(newArr));
 
-    try {
-      const response = await axios.post('http://localhost:3000/api/v1/houses/:id/reservations', { city: selectedCity });
-      console.error('Data submitted:', response.data);
-    } catch (error) {
-      console.error('Error submitting data:', error);
     }
+    navigate('/reservations');
+    setError(false);
   };
 
   return (
@@ -34,6 +60,28 @@ const CityForm = () => {
           Please select the city in which you want to make your reservation.
         </p>
         <div className="horizontal-buttons">
+          <select
+            type="text"
+            value={selectedHouse}
+            onChange={(e) => setSelectedHouse(e.target.value)}
+            required
+          >
+            <option disabled value="">
+              Select House
+            </option>
+            { houses.map((house, index) => (
+              <option key={index} value={house}>
+                {house}
+              </option>
+            ))}
+          </select>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            placeholder="Date"
+            required
+          />
           <select value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
             <option value="">Select city</option>
             {cities.map((city, index) => (
@@ -50,51 +98,3 @@ const CityForm = () => {
 };
 
 export default CityForm;
-
-// const ReservationFormComponent = () => {
-//   const dispatch = useDispatch();
-//   const { reservationForm, isLoading, error } = useSelector(
-//     (state) => state.reservationForm,
-//   );
-
-//   useEffect(() => {
-//     dispatch(fetchReservationForm());
-//   }, [dispatch]);
-
-//   return (
-//     <div className="reservation-page">
-//       {isLoading && <p>Loading...</p>}
-//       {error && (
-//       <p>
-//         Error:
-//         {error}
-//       </p>
-//       )}
-//       {reservationForm && (
-//         <form>
-//           <h2>Book a House!</h2>
-//           <p>
-//             Hello! We&apos;re excited that you want to book with us!
-//             Please the city in which you want to make your reservation.
-//           </p>
-//           <div className="inputs-and-button">
-//             <select
-//               id="city"
-//               type="text"
-//               placeholder="City"
-//               name="city"
-//               value={reservationForm.city}
-//             >
-//               <option value="" disabled>
-//                 City
-//               </option>
-//             </select>
-//             <button type="submit">Submit</button>
-//           </div>
-//         </form>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ReservationFormComponent;

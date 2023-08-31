@@ -17,7 +17,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree&family=Fjalla+One&family=Pacifico&family=Roboto&display=swap');
 
 body {
-  /* padding: 10px 20px; */
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
@@ -98,10 +97,6 @@ a {
   height: 140px;
   border-radius: 45%;
 }
-
-/* .lower-part {
-text-align: ce;
-} */
 
 .container p {
   text-align: left;

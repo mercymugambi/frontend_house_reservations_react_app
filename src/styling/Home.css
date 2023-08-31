@@ -7,37 +7,6 @@
   margin-top: 2%;
 }
 
-.house-container {
-  display: flex;
-  width: 60vw; /* Make sure the container takes full width */
-  flex-wrap: nowrap; /* Prevent items from wrapping */
-  overflow: hidden;
-  transition: transform 0.5s ease; /* For smooth sliding effect */
-}
-
-.select {
-  display: flex;
-  flex-direction: column;
-  margin-top: 14%;
-  align-items: center;
-}
-
-.house-control2 button {
-  height: 50px;
-  margin-top: 20vh;
-  font-weight: bold;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background: greenyellow;
-  border-color: greenyellow;
-  color: white !important;
-  display: flex;
-  justify-content: center;
-  font-size: 2rem;
-}
-
 .house-control1 button {
   height: 50px;
   border-top-left-radius: 0;
@@ -56,11 +25,49 @@
 .disabledButton {
   background: gray !important;
   border: none !important;
+  width: 50px;
+}
+
+.house-container {
+  display: flex;
+  width: 60vw;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14%;
+  align-items: center;
+}
+
+.select p {
+  color: #333;
+}
+
+.house-control2 button {
+  height: 50px;
+  width: 60px;
+  margin-top: 20vh;
+  font-weight: bold;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: greenyellow;
+  border-color: greenyellow;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }
 
 .house-item {
-  display: flex;
+  display: grid;
   flex-direction: column;
+  gap: 20px;
   flex: 0 0 auto;
   align-items: center;
   text-align: center;
@@ -69,31 +76,36 @@
   text-decoration: none;
 }
 
-.house-item h1 {
-  color: #333;
-  font-family:
-    "Trebuchet MS",
-    "Lucida Sans Unicode",
-    "Lucida Grande",
-    "Lucida Sans",
-    Arial,
-    sans-serif;
+.house-item h3 {
+  color: #434343;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 27px;
 }
 
 .house-item p {
+  font-size: 12px;
+  font-weight: 100;
   padding: 2vh 4vw;
-  color: #222;
+  color: #b7b7b7;
   margin-top: -2vh;
 }
 
 .house-item img {
   width: 200px;
   height: 200px;
-  border-radius: 100%;
+  border-radius: 45%;
+}
+
+.bullets {
+  font-size: 8px;
+  color: #b7b7b7;
 }
 
 @media (max-width: 600px) {
+  .select h1 {
+    font-size: 18px;
+  }
+
   .house-item {
     margin-right: 0;
   }

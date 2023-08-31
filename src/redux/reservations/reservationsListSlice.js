@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const baseUrl = 'http://localhost:3000/api/v1/houses/:id/reservations';
+const baseUrl = 'http://localhost:3000/api/v1/houses/:house_id/reservations';
 
 const initialState = {
-  reservations: [],
+  reserved: [],
   isLoading: false,
   error: null,
 };
@@ -20,7 +20,11 @@ export const fetchReservations = createAsyncThunk(
 const reservationsListSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {},
+  reducers: {
+    setReservations(state, action) {
+      return { ...state, reserved: [...action.payload] };
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchReservations.fulfilled, (state, action) => ({
@@ -31,4 +35,5 @@ const reservationsListSlice = createSlice({
   },
 });
 
+export const { setReservations } = reservationsListSlice.actions;
 export default reservationsListSlice.reducer;

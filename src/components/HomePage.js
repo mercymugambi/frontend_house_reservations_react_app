@@ -58,7 +58,14 @@ const HomePage = () => {
                   className="house-item"
                 >
                   <img src={house.icon} alt={house.house_name} />
-                  <h1>{house.house_name}</h1>
+                  <h3>{house.house_name}</h3>
+                  <div className="bullets">
+                    &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;
+                    &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;
+                    &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;
+                    &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;
+                    &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;  &#x2022;
+                  </div>
                   <p>{house.description}</p>
                 </Link>
               ))

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { sendHouses } from '../redux/houses/housesSlice';
 
 const HouseForm = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.houses.isLoading);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     icon: '',
@@ -19,20 +21,10 @@ const HouseForm = () => {
     admin_user_id: '',
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(sendHouses({ house: formData }));
-    setFormData({
-      icon: '',
-      house_name: '',
-      city: '',
-      description: '',
-      bedrooms: '',
-      bathrooms: '',
-      rent: '',
-      security_deposit: '',
-      contact_phone_number: '',
-      admin_user_id: '',
-    });
+    navigate('/homepage');
   };
 
   const handleInputChange = (field, value) => {
@@ -52,7 +44,7 @@ const HouseForm = () => {
             type="text"
             value={formData.house_name}
             onChange={(e) => handleInputChange('house_name', e.target.value)}
-            placeholder="Name"
+            placeholder="House Name"
           />
           <input
             type="text"
@@ -111,7 +103,7 @@ const HouseForm = () => {
             placeholder="admin_user_id"
           />
           <div className="horixontal-buttons">
-            <button type="button" onClick={handleSubmit}>Submit</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </section>

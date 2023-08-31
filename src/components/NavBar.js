@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import
+import {
+  BiLogoFacebook, BiLogoVimeo, BiLogoTwitter, BiLogoPinterestAlt, BiLogoGooglePlus,
+} from 'react-icons/bi';
 import '../styling/NavBar.css';
 
 const NavBar = () => {
@@ -45,47 +47,47 @@ const NavBar = () => {
           type="button"
           onClick={() => setOpen(!open)}
         >
-          {open ? (
-            <svg viewBox="0 0 100 80" width="40" height="40" fill="black">
+          {!open ? (
+            <p className="close-btn">X</p>
+          ) : (
+            <svg viewBox="0 0 100 80" width="20" height="20" fill="black">
               <rect width="100" height="10" />
               <rect y="30" width="100" height="10" />
               <rect y="60" width="100" height="10" />
             </svg>
-          ) : (
-            <p className="close-btn">X</p>
           )}
         </button>
       </div>
       <ul className={`nav ${open && 'open'}`}>
-        <li className="logo">
+        <div className="logo">
           <div className="content">
-            <h2>
+            <h2 className="nav-h2">
               Classic Rental
               <br />
               Houses
             </h2>
           </div>
-        </li>
-        <span className="links">
+        </div>
+        <div className="links">
           <li className={`${params.pathname.split('/')[1] === 'homepage' && 'active'}`}>
             <Link className="link" to="/homepage">
-              Houses
+              HOME PAGE
             </Link>
           </li>
           <li
             className={`${params.pathname.split('/')[1] === 'ReservationForm' && 'active'
             }`}
           >
-            <Link className="link" to="/ReservationForm">
-              Reserve
+            <Link className="link" to="/reservation-form">
+              MAKE RESERVATION
             </Link>
           </li>
           <li
             className={`${params.pathname.split('/')[1] === 'ReservationList' && 'active'
             }`}
           >
-            <Link className="link" to="/ReservationList">
-              My Reservations
+            <Link className="link" to="/reservations">
+              MY RESERVATIONS
             </Link>
           </li>
           <li
@@ -93,7 +95,7 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/add-house">
-              Add House
+              ADD HOUSE
             </Link>
           </li>
           <li
@@ -101,57 +103,149 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/delete-house">
-              Delete House
+              DELETE HOUSE
             </Link>
           </li>
+        </div>
+        <div className="lower-nav">
           <li>
             <Link className="link" onClick={logOut} to="/">
               Log Out
             </Link>
           </li>
-        </span>
-        <li>
-          <ul className="social">
-            <li>
-              <Link to="/#">
-                <img className="social-logo" src="/images/x.webp" alt="x" />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/facebook.webp"
-                  alt="facebook"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/instagram.webp"
-                  alt="instagram"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/pintrest.png"
-                  alt="pintrest"
-                />
-              </Link>
-            </li>
-          </ul>
-        </li>
-        <li className="copyright">
-          <p>© Microverse 2023</p>
-        </li>
+          <li>
+            <ul className="social">
+              <li>
+                <Link to="/#">
+                  <BiLogoTwitter />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <BiLogoFacebook />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <BiLogoGooglePlus />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <BiLogoVimeo />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <BiLogoPinterestAlt />
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="copyright">
+            <p>© Microverse 2023</p>
+          </li>
+        </div>
       </ul>
     </>
   );
 };
 
 export default NavBar;
+
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+// // import { BsTwitter } from 'react-icons';
+// // import { BiLogoFacebook } from 'react-icons/bi';
+// // import { BsVimeo } from 'react-icons/bs';
+// // import { FaPinterestP, FaGooglePlusG } from 'react-icons/fa';
+// import '../styling/NavBar.css';
+// import '../styling/NavBar.css';
+
+// const NavBar = () => {
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   const toggleMenu = () => {
+//     setMenuOpen(!menuOpen);
+//   };
+
+//   const logOut = () => {
+//     localStorage.removeItem('username');
+//   };
+
+//     useEffect(() => {
+//     setOpen(true);
+//   }, [params]);
+
+//   const isSplashPage = params.pathname === '/';
+
+//   if (!open || isSplashPage) {
+//         return null;
+//       }
+
+//       const isLoginPage = params.pathname === '/login';
+
+//       if (!open || isLoginPage) {
+
+//         return null;
+//       }
+
+//       const isRegisterPage = params.pathname === '/register';
+
+//       if (!open || isRegisterPage) {
+//         return null;
+//       }
+
+//   return (
+//     <nav className="navbar">
+//       <div className="logo">
+//         <h2>Classic Rental Houses</h2>
+//       </div>
+//       <button type="button" className="menu-icon" onClick={toggleMenu}>
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//       </button>
+//       <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+//         <ul>
+//           <li><Link to="/homepage">HOME PAGE</Link></li>
+//           <li><Link to="/reservation-form">MAKE RESERVATION</Link></li>
+//           <li><Link to="/reservations">MY RESERVATIONS</Link></li>
+//           <li><Link to="/add-house">ADD HOUSE</Link></li>
+//           <li><Link to="/delete-house">DELETE HOUSE</Link></li>
+//           <li><Link onClick={logOut} to="/">Log Out</Link></li>
+//         </ul>
+//         <ul className="social">
+//             <li>
+//             {' '}
+//             {/* <BsTwitter /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <BiLogoFacebook /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <FaGooglePlusG /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <BsVimeo /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <FaPinterestP /> */}
+//             {' '}
+//           </li>
+//         </ul>
+//         <ul className="copyright">
+//           <p>© Microverse 2023</p>
+//         </ul>
+//       </ul>
+//     </nav>
+//   );
+// };
+
+// export default NavBar;
