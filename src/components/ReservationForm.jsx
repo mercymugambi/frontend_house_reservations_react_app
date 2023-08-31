@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -13,11 +15,11 @@ const CityForm = () => {
   const [selectedHouse, setSelectedHouse] = useState('');
   const [date, setDate] = useState('');
   const [error, setError] = useState(false);
-  const user = useSelector((store) => store.user.userData);
+  // const user = useSelector((store) => store.user.userData);
   const { houseId } = useParams();
   const [isHouse, setIsHouse] = useState(false);
   const [house_id, setHouseId] = useState('');
-  const [city_id, setCityId] = useState('');
+  // const [city_id, setCityId] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {

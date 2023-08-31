@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import
+import { BsTwitter } from 'react-icons/bs';
+import { BiLogoFacebook } from 'react-icons/bi';
+import { FaPinterestP, FaVimeoV, FaGooglePlusG } from 'react-icons/fa';
 import '../styling/NavBar.css';
 
 const NavBar = () => {
@@ -57,7 +59,7 @@ const NavBar = () => {
         </button>
       </div>
       <ul className={`nav ${open && 'open'}`}>
-        <li className="logo">
+        <div className="logo">
           <div className="content">
             <h2>
               Classic Rental
@@ -65,11 +67,11 @@ const NavBar = () => {
               Houses
             </h2>
           </div>
-        </li>
-        <span className="links">
+        </div>
+        <div className="links">
           <li className={`${params.pathname.split('/')[1] === 'homepage' && 'active'}`}>
             <Link className="link" to="/homepage">
-              Home Page
+              HOME PAGE
             </Link>
           </li>
           <li
@@ -77,7 +79,7 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/reservation-form">
-              Make Reservation
+              MAKE RESERVATION
             </Link>
           </li>
           <li
@@ -85,7 +87,7 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/reservations">
-              My Reservations
+              MY RESERVATIONS
             </Link>
           </li>
           <li
@@ -93,7 +95,7 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/add-house">
-              Add House
+              ADD HOUSE
             </Link>
           </li>
           <li
@@ -101,54 +103,49 @@ const NavBar = () => {
             }`}
           >
             <Link className="link" to="/delete-house">
-              Delete House
+              DELETE HOUSE
             </Link>
           </li>
+        </div>
+        <div className="lower-nav">
           <li>
             <Link className="link" onClick={logOut} to="/">
               Log Out
             </Link>
           </li>
-        </span>
-        <li>
-          <ul className="social">
-            <li>
-              <Link to="/#">
-                <img className="social-logo" src="/images/x.webp" alt="x" />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/facebook.webp"
-                  alt="facebook"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/instagram.webp"
-                  alt="instagram"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/#">
-                <img
-                  className="social-logo"
-                  src="/images/pintrest.png"
-                  alt="pintrest"
-                />
-              </Link>
-            </li>
-          </ul>
-        </li>
-        <li className="copyright">
-          <p>© Microverse 2023</p>
-        </li>
+          <li>
+            <ul className="social">
+              <li>
+                <Link to="/#">
+                  <BsTwitter className="social-logo" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <BiLogoFacebook />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <FaGooglePlusG />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <FaVimeoV />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  <FaPinterestP />
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="copyright">
+            <p>© Microverse 2023</p>
+          </li>
+        </div>
       </ul>
     </>
   );
