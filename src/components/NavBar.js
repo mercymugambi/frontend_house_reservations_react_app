@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BsTwitter } from 'react-icons/bs';
-import { BiLogoFacebook } from 'react-icons/bi';
-import { FaPinterestP, FaVimeoV, FaGooglePlusG } from 'react-icons/fa';
+import {
+  BiLogoFacebook, BiLogoVimeo, BiLogoTwitter, BiLogoPinterestAlt, BiLogoGooglePlus,
+} from 'react-icons/bi';
 import '../styling/NavBar.css';
 
 const NavBar = () => {
@@ -47,21 +47,21 @@ const NavBar = () => {
           type="button"
           onClick={() => setOpen(!open)}
         >
-          {open ? (
-            <svg viewBox="0 0 100 80" width="40" height="40" fill="black">
+          {!open ? (
+            <p className="close-btn">X</p>
+          ) : (
+            <svg viewBox="0 0 100 80" width="20" height="20" fill="black">
               <rect width="100" height="10" />
               <rect y="30" width="100" height="10" />
               <rect y="60" width="100" height="10" />
             </svg>
-          ) : (
-            <p className="close-btn">X</p>
           )}
         </button>
       </div>
       <ul className={`nav ${open && 'open'}`}>
         <div className="logo">
           <div className="content">
-            <h2>
+            <h2 className="nav-h2">
               Classic Rental
               <br />
               Houses
@@ -117,7 +117,7 @@ const NavBar = () => {
             <ul className="social">
               <li>
                 <Link to="/#">
-                  <BsTwitter className="social-logo" />
+                  <BiLogoTwitter />
                 </Link>
               </li>
               <li>
@@ -127,17 +127,17 @@ const NavBar = () => {
               </li>
               <li>
                 <Link to="/#">
-                  <FaGooglePlusG />
+                  <BiLogoGooglePlus />
                 </Link>
               </li>
               <li>
                 <Link to="/#">
-                  <FaVimeoV />
+                  <BiLogoVimeo />
                 </Link>
               </li>
               <li>
                 <Link to="/#">
-                  <FaPinterestP />
+                  <BiLogoPinterestAlt />
                 </Link>
               </li>
             </ul>
@@ -152,3 +152,100 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+// // import { BsTwitter } from 'react-icons';
+// // import { BiLogoFacebook } from 'react-icons/bi';
+// // import { BsVimeo } from 'react-icons/bs';
+// // import { FaPinterestP, FaGooglePlusG } from 'react-icons/fa';
+// import '../styling/NavBar.css';
+// import '../styling/NavBar.css';
+
+// const NavBar = () => {
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   const toggleMenu = () => {
+//     setMenuOpen(!menuOpen);
+//   };
+
+//   const logOut = () => {
+//     localStorage.removeItem('username');
+//   };
+
+//     useEffect(() => {
+//     setOpen(true);
+//   }, [params]);
+
+//   const isSplashPage = params.pathname === '/';
+
+//   if (!open || isSplashPage) {
+//         return null;
+//       }
+
+//       const isLoginPage = params.pathname === '/login';
+
+//       if (!open || isLoginPage) {
+
+//         return null;
+//       }
+
+//       const isRegisterPage = params.pathname === '/register';
+
+//       if (!open || isRegisterPage) {
+//         return null;
+//       }
+
+//   return (
+//     <nav className="navbar">
+//       <div className="logo">
+//         <h2>Classic Rental Houses</h2>
+//       </div>
+//       <button type="button" className="menu-icon" onClick={toggleMenu}>
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//         <div className={`bar ${menuOpen ? 'open' : ''}`} />
+//       </button>
+//       <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+//         <ul>
+//           <li><Link to="/homepage">HOME PAGE</Link></li>
+//           <li><Link to="/reservation-form">MAKE RESERVATION</Link></li>
+//           <li><Link to="/reservations">MY RESERVATIONS</Link></li>
+//           <li><Link to="/add-house">ADD HOUSE</Link></li>
+//           <li><Link to="/delete-house">DELETE HOUSE</Link></li>
+//           <li><Link onClick={logOut} to="/">Log Out</Link></li>
+//         </ul>
+//         <ul className="social">
+//             <li>
+//             {' '}
+//             {/* <BsTwitter /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <BiLogoFacebook /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <FaGooglePlusG /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <BsVimeo /> */}
+//             {' '}
+//           </li>
+//           <li>
+//             {/* <FaPinterestP /> */}
+//             {' '}
+//           </li>
+//         </ul>
+//         <ul className="copyright">
+//           <p>© Microverse 2023</p>
+//         </ul>
+//       </ul>
+//     </nav>
+//   );
+// };
+
+// export default NavBar;
