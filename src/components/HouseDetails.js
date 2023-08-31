@@ -39,11 +39,11 @@ const HouseDetails = () => {
             <h2 className="detailTitle">
               More Information about
               {' '}
-              {selectedHouse.name}
+              {selectedHouse.house_name}
             </h2>
             <div className="info">
               <p>House Name</p>
-              <p>{selectedHouse.name}</p>
+              <p>{selectedHouse.house_name}</p>
             </div>
             <div className="info">
               <p>City</p>

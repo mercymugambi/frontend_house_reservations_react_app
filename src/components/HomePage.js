@@ -57,8 +57,8 @@ const HomePage = () => {
                   key={house.id}
                   className="house-item"
                 >
-                  <img src={house.image} alt={house.name} />
-                  <h1>{house.name}</h1>
+                  <img src={house.icon} alt={house.house_name} />
+                  <h1>{house.house_name}</h1>
                   <p>{house.description}</p>
                 </Link>
               ))

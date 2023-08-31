@@ -1,7 +1,7 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteHouse } from "../redux/houses/housesSlice";
-import "../styling/deleteHouse.css";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteHouse } from '../redux/houses/housesSlice';
+import '../styling/deleteHouse.css';
 
 const DeleteHouse = () => {
   const dispatch = useDispatch();
