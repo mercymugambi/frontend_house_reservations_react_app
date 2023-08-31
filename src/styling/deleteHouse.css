@@ -1,3 +1,10 @@
+.delete-house {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-content: left;
+}
+
 .reserve-btn {
   cursor: pointer;
   background-color: #21893e;
