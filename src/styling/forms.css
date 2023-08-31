@@ -45,6 +45,11 @@ input {
   padding: 5px 10px;
 }
 
+input:focus {
+  background-color: #fff;
+  color: #000;
+}
+
 select,
 button,
 .button {
