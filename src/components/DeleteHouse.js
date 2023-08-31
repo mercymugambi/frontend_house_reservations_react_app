@@ -43,10 +43,10 @@ const DeleteHouse = () => {
         </div>
       ))}
       {deletedMessageVisible && (
-            <div className="deleted-message">
-              <p style={{ color: "red", fontSize: "21px" }}>Successfully deleted!</p>
-            </div>
-          )}
+      <div className="deleted-message">
+        <p style={{ color: 'red', fontSize: '21px' }}>Successfully deleted!</p>
+      </div>
+      )}
     </div>
   );
 };

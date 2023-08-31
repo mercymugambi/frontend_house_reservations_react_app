@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchHouses } from '../redux/houses/housesSlice';
 import '../styling/HouseDetails.css';
 
@@ -32,46 +32,53 @@ const HouseDetails = () => {
         <div className="HouseDetails-container">
           <img className="icon" src={selectedHouse.icon} alt="House Icon" />
           <div className="lower-part">
-            <h4>
-              House:
-              {selectedHouse.id}
-            </h4>
             <h2 className="detailTitle">
-              More Information about
               {' '}
               {selectedHouse.house_name}
             </h2>
             <div className="info">
-              <p>House Name</p>
-              <p>{selectedHouse.house_name}</p>
-            </div>
-            <div className="info">
-              <p>City</p>
               <p>{selectedHouse.city || 'N/A'}</p>
             </div>
             <div className="info">
-              <p>Description</p>
               <p>{selectedHouse.description}</p>
             </div>
             <div className="info">
-              <p>Bedrooms:</p>
-              <p>{selectedHouse.bedrooms}</p>
+              <p>
+                <strong>Bedrooms:</strong>
+                {' '}
+                {selectedHouse.bedrooms}
+              </p>
             </div>
             <div className="info">
-              <p>Bathrooms</p>
-              <p>{selectedHouse.bathrooms}</p>
+              <p>
+                <strong>Bathrooms</strong>
+                {' '}
+                {selectedHouse.bathrooms}
+              </p>
             </div>
             <div className="info">
-              <p>Rent:</p>
-              <p>{selectedHouse.rent}</p>
+              <p>
+                <strong>Rent:</strong>
+                {' '}
+                {selectedHouse.rent}
+              </p>
             </div>
             <div className="info">
-              <p>Security Deposit</p>
-              <p>{selectedHouse.security_deposit}</p>
+              <p>
+                <strong>Security Deposit: </strong>
+                {selectedHouse.security_deposit}
+              </p>
             </div>
             <div className="info">
-              <p>Contact Phone Number</p>
-              <p>{selectedHouse.contact_phone_number || 'N/A'}</p>
+              <p>
+                <strong>Contact Phone Number: </strong>
+                {selectedHouse.contact_phone_number || 'N/A'}
+              </p>
+              <button className="reserve-btn" type="submit">
+                <Link className="navlink" to="/reservation-form">
+                  Make Reservation
+                </Link>
+              </button>
             </div>
           </div>
         </div>
