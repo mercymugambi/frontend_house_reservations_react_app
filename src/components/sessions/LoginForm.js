@@ -21,6 +21,16 @@ const LoginForm = () => {
   };
 
   const url = 'http://127.0.0.1:3000/api/v1/users/sign_in';
+
+  const handleSuccessfulLogin = () => {
+    setLoginSuccess(true);
+
+    // Refresh the page after a successful login
+    setTimeout(() => {
+      window.location.reload();
+    }, 1);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,7 +46,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('userData', JSON.stringify(data));
-        setLoginSuccess(true);
+        handleSuccessfulLogin();
         navigate('/homepage');
       } else {
         setLoginFailure(true);
@@ -47,7 +57,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h2>Login</h2>
       {loginSuccess ? (
         <div>
@@ -55,30 +65,28 @@ const LoginForm = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <label htmlFor>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="email"
+          />
           <br />
-          <label htmlFor>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            className="password-value"
+          />
           <br />
-          <button type="submit">Login</button>
-          <Link to="/register">Register</Link>
+          <div className="horizontal-buttons">
+            <button type="submit">Login</button>
+            <Link to="/register" className="button">Register</Link>
+          </div>
         </form>
-
       )}
 
       {loginFailure && (
@@ -87,7 +95,6 @@ const LoginForm = () => {
       </div>
       )}
     </div>
-
   );
 };
 
