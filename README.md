@@ -1,115 +1,151 @@
 <a name="readme-top"></a>
-
-<!-- TABLE OF CONTENTS -->
-
+![](https://img.shields.io/badge/Microverse-blueviolet)
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 fronted_house_reservations_react_app ](#-fronted_house_reservations_react_app-)
-  - [🛠 Built With ](#-built-with-)
-  - [Key Features](#key-features)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#Tech_Stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 fronted_house_reservations_react_app <a name="about-project"></a>
+# 📖 [Houses_Reservation] <a name="about-project"></a>
 
-- This is a frontend reservation app built using rails
+**[Houses_Reservations]**  is a FullStack Group project and here is the frontend service provider for the hotels-reservations App which helps the frontend users to register(sign up) and login (sign in). It also provides API endpoints to read, write, update, and delete data.
+
+- We also built a simple documentation for this project so users can have an idea on how to use the app.
 
 ## 🛠 Built With <a name="built-with"></a>
+## Tech Stack
+- [x] [ReactJs](https://reactjs.org/)
+- [x] [Ruby on Rails](https://rubyonrails.org/)
+- [x] [PostgresSQL](https://www.postgresql.org/)
+- [x] And some other open source [ruby gems](https://rubygems.org/)
 
-- React
+<!-- Features -->
 
-## React Link
+### Key Features <a name="key-features"></a>
 
-  https://github.com/mercymugambi/backed_house_reservations_rails_app/
+- **[Create new user]**
+- **[Add new House]**
+- **[Delete House]**
+- **[Add reservation]**
+- **[Cancel reservation]**
+- **[Display my reservations list]**
 
-## Key Features
 
-- Fetch data from the Backend API
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+***[Link to Live Demo]()***
+
+***[Link to FrontEnd Repo](https://github.com/mercymugambi/frontend_house_reservations_react_app)***
+
+***[Link to BackEnd Repo](https://github.com/mercymugambi/backend_house_reservations_rails_app)***
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Kanban Board 📄
+
+- [Kanban Board Link](https://github.com/mercymugambi/backend_house_reservations_rails_app/projects/1)
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
-In order to run this project you need:
+In order to run this project :
 
-Example command:
-
-```sh
-1.use a browser
-2.use cable internet
-```
+1. Make sure you have `Git installed` in your Computer or Install it by following [these steps](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-Example commands:
-
-```sh
-
-  git clone https://github.com/mercymugambi/backend_house_reservations_rails_app.git
-  cd backend_house_reservations_rails_app
-```
-
-### Install
-
-Install this project with:
-
-Example command:
-
-```sh
-npm install
-```
+1. Download the zip file or 
+2. clone with this command `git clone https://github.com/mercymugambi/frontend_house_reservations_react_app`
+3. cd full-stack-capstone-front-end
 
 ### Usage
 
-To run the project, execute the following command:
+In the project directory, you can run following commands:</br>
 
-Example command:
-
-```sh
-npm start
-```
+- `cd full-stack-capstone-front-end`</br>
+- `npm install`</br>
+- `npm start`</br>
+- Open a browser and go to: `https://localhost:3001` to view the frontend app.
+- The page will reload when you make changes.\
+- You may also see any linter errors in the console.
 
 ### Run tests
 
-To run tests for the linter, run the following command:
+For tracking linter errors locally you need to follow these steps:
 
-Example command:
+- For tracking the linter errors in CSS file run:
+  > npx stylelint "**/*.{css,scss}"
 
-```sh
-rubocop -A
-```
+  - And For tracking the linter errors in JavaScript file run:
+  > npx eslint .
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Hasnat Ali**
+
+- GitHub: [Hasnat Ali](https://github.com/hasnatali1947)
+- LinkedIn: [Hasnat Ali](https://www.linkedin.com/in/hasnattali/)
+- LinkedIn: [Hasnat Ali](https://twitter.com/hasnatking1947)
+  
+👥 **Joy Phoebe**
+
+- GitHub: [joyapisi](https://github.com/joyapisi)
+- Twitter: [joyapisi](https://twitter.com/joyphoebe300)
+- LinkedIn: [joyapisi](https://www.linkedin.com/in/joyapisi/)
+  
 👥 **Mercy Mugambi**
+
 - GitHub: [@mercymugambi](https://github.com/mercymugambi)
 - Twitter: [@MercyMugambi15](https://twitter.com/MercyMugambi15)
 - LinkedIn: [mercymugambi](https://www.linkedin.com/in/mercymugambi)
 
+👤 **Esther Mawioo**
+
+- Github: [EstherMawioo](https://github.com/mumo-esther/mumo-esther)
+- Twitter: [EstherMawioo](https://twitter.com/EstherMawioo)
+- LinkedIn: [EstherMawioo](https://www.linkedin.com/in/esther-mawioo-58b636225/)
+  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **-Make it interactive**
 
+- [ ] **[More animations]**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -117,21 +153,30 @@ rubocop -A
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [Issues Pages](https://github.com/mercymugambi/fronted_house_reservations_react_app/issues)
+Feel free to check the [issues page](https://github.com/mercymugambi/backend_house_reservations_rails_app/issues).
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project kindly give it a star⭐️.
+Give a ⭐️ if you like this project!
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse.
+- Hat tip to [Microvers](https://www.microverse.org/)  and all the staff
+- Code Reviewers
+- Coding Partners
+
+The design has been inspired by: [Murat Korkmaz on Behance](https://www.behance.net/muratk)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
